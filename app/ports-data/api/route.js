@@ -1,6 +1,7 @@
 // /app/ports-data/api/route.js
 import { NextResponse } from "next/server";
 import redis from "@/libs/redis";
+import "@/libs/httpAgent"; // Import to initialize global agents
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
@@ -14,7 +15,11 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = 15000) {
   const id = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(url, { ...options, signal: controller.signal });
+    // fetch() uses undici which has built-in connection pooling
+    const res = await fetch(url, { 
+      ...options, 
+      signal: controller.signal
+    });
     clearTimeout(id);
     return res;
   } catch (err) {

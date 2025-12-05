@@ -1,4 +1,6 @@
 // /app/search/api/route.js
+import "@/libs/httpAgent"; // Import to initialize global agents
+
 export const dynamic = "force-static";
 export const revalidate = 1800; // 1 hour cache
 
@@ -6,6 +8,7 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
+    // fetch() uses undici which has built-in connection pooling
     const res = await fetch("http://103.30.72.94:8011/distinctCount", {
       method: "POST",
       headers: {

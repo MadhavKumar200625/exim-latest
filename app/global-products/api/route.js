@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import redis from "@/libs/redis";
+import "@/libs/httpAgent"; // Import to initialize global agents
 
 export const dynamic = "force-static";
 export const revalidate = 3600;
@@ -33,6 +34,7 @@ export async function POST(req) {
   let response;
 
   try {
+    // fetch() uses undici which has built-in connection pooling
     const res = await fetch("http://103.30.72.94:8001/countriesProductList", {
       method: "POST",
       headers: {

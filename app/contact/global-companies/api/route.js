@@ -1,3 +1,5 @@
+import "@/libs/httpAgent"; // Import to initialize global agents
+
 export const dynamic = "force-static";
 export const revalidate = 3600; 
 export async function GET(req) {
@@ -32,6 +34,7 @@ export async function GET(req) {
   try {
     const results = await Promise.all(
       endpoints.map(async (ep) => {
+        // fetch() uses undici which has built-in connection pooling
         const r = await fetch(`http://103.30.72.94:8011/companyReport/${ep}`, {
           method: "POST",
           headers: {
