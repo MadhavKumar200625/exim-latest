@@ -21,7 +21,7 @@ export default function PortClient({ country, port }) {
       setErr(null);
 
       try {
-        const res = await fetch(`/global-ports/api`, {
+        const res = await fetch(`https://test.eximtradedata.com/global-ports/api`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ country, port }),

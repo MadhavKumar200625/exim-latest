@@ -1,66 +1,87 @@
-import "@/libs/httpAgent"; // Import to initialize global agents
+"use client";
 
-export const dynamic = "force-static";
-export const revalidate = 3600; 
-export async function GET(req) {
-  const { searchParams } = new URL(req.url);
+import React, { useEffect, useState } from "react";
 
-  const country = searchParams.get("country");
-  const company = searchParams.get("company");
+import Hero from "./Hero";
+import Overview from "./Overview";
+import Stats from "./Stats";
+import MarketIntel from "./MarketIntel";
+import DetailedTable from "./DetailedTable";
+import CtaImage from "./CtaImage";
+import FAQSection from "@/app/components/FAQ";
 
-  if (!country || !company) {
-    return Response.json({ error: "Missing params" }, { status: 400 });
-  }
+export default function Page({ params }) {
+  const { country, company } = params;
 
-  // Build payload
-  const formattedCountry = country.toLowerCase().replace(/\s+/g, "_");
-  const payload = {
-    source: formattedCountry,
-    type: "master",
-    country_name: formattedCountry,
-    company_name: company.replaceAll("-", " ").toUpperCase(),
-  };
+  const [data, setData] = useState(null);
 
-  const endpoints = [
-    "valueCount",
-    "uniqueBuyerSupplier",
-    "topHSCode",
-    "topOriginCountryDestinationCountry",
-    "topPortOfLoadingUnloading",
-    "topBuyerSupplier",
-    "topExporterImporter",
-  ];
+  const companyName = company.replaceAll("-", " ").toUpperCase();
 
-  try {
-    const results = await Promise.all(
-      endpoints.map(async (ep) => {
-        // fetch() uses undici which has built-in connection pooling
-        const r = await fetch(`http://103.30.72.94:8011/companyReport/${ep}`, {
-          method: "POST",
-          headers: {
-            Authorization: "Basic YWJjOmFiY0AxMjM=",
-            "Content-Type": "application/json",
+  useEffect(() => {
+    async function load() {
+      try {
+        const res = await fetch(
+          `https://test.eximtradedata.com//global-companies/api?country=${country}&company=${company}`
+        );
+        const apiData = await res.json();
+
+        setData({
+          companyName,
+          section2: apiData.section2,
+          section3: apiData.section3,
+          section4: apiData.section4,
+          section7: {
+            faqs: [
+              {
+                question: `How many import shipments were made at ${companyName} port during 2024?`,
+                answer: `In 2024, there were 0 shipments made at ${companyName} port.`,
+              },
+              {
+                question: `How many active buyers were at ${companyName} port in 2024?`,
+                answer: `There were around 0 active buyers at ${companyName} port in 2024.`,
+              },
+              {
+                question: `Who was the leading buyer to ${companyName} port in 2024?`,
+                answer: `N/A was the leading buyer to ${companyName} port in 2024.`,
+              },
+              {
+                question: `How many active suppliers were at ${companyName} port in 2024?`,
+                answer: `There were around 0 suppliers at ${companyName} port in 2024.`,
+              },
+              {
+                question: `Who was the leading exporter from ${companyName} port in 2024?`,
+                answer: `N/A was the leading exporter from ${companyName} port in 2024.`,
+              },
+              {
+                question: `How can I access the yearwise ${companyName} port data?`,
+                answer: `You can access port-level data through Exim GTIS platform.`,
+              },
+            ],
           },
-          body: JSON.stringify(payload),
         });
+      } catch (e) {
+        console.error(e);
+      }
+    }
 
-        const txt = await r.text();
-        return txt ? JSON.parse(txt) : { error: "Invalid response" };
-      })
-    );
+    load();
+  }, [country, company]);
 
-    // Format data
-    return Response.json({
-      section2: results[0],
-      section3: results[1],
-      section4: {
-        import: results[2],
-        export: results[3],
-      },
-      section5: {},
-    });
+  if (!data) return <div>Loading…</div>;
 
-  } catch (err) {
-    return Response.json({ error: err.message }, { status: 500 });
-  }
+  return (
+    <main>
+      <Hero />
+      <Overview data={data.section2} />
+      <Stats companyName={companyName} data={data.section3} />
+      <MarketIntel
+        companyName={companyName}
+        importData={data.section4.import}
+        exportData={data.section4.export}
+      />
+      <DetailedTable companyName={companyName} />
+      <CtaImage />
+      <FAQSection faqs={data.section7.faqs} />
+    </main>
+  );
 }

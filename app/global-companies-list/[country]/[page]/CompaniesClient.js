@@ -23,7 +23,7 @@ export default function CompaniesClient({ params }) {
       setErr(null);
 
       //try {
-        const res = await fetch("/global-companies-list/api", {
+        const res = await fetch("https://test.eximtradedata.com/global-companies-list/api", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           signal: controller.signal,
