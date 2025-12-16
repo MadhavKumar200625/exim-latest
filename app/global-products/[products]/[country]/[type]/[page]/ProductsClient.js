@@ -66,8 +66,9 @@ export default function ProductsClient({ params }) {
         const json = await res.json();
 
         if (!json || !json.success || !json.data) {
-          throw new Error(json?.message || "Invalid API response");
-        }
+  setData(d => ({ ...d, products: [], totalValues: 0 }));
+  return;
+}
 
         setData({
           defaultLetter: products.replace(/^product-/, "").toUpperCase(),

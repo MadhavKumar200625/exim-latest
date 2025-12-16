@@ -1,68 +1,106 @@
 import { NextResponse } from "next/server";
 import redis from "@/libs/redis";
-import "@/libs/httpAgent"; // Import to initialize global agents
+import "@/libs/httpAgent";
 
-export const dynamic = "force-static";
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
+/* -------------------- constants -------------------- */
+const UPSTREAM = "http://103.30.72.94:8001/countriesProductList";
+const AUTH = "Basic YWJjOmFiY0AxMjM=";
+const CACHE_TTL = 3600;
+const UPSTREAM_TIMEOUT = 10000;
+const MAX_CONCURRENCY = 50;
+
+/* -------------------- inflight + limit -------------------- */
+const inFlight = global.productsInFlight || new Map();
+global.productsInFlight = inFlight;
+
+let active = 0;
+async function withLimit(fn) {
+  if (active >= MAX_CONCURRENCY) throw new Error("BUSY");
+  active++;
+  try {
+    return await fn();
+  } finally {
+    active--;
+  }
+}
+
+/* -------------------- helpers -------------------- */
+const fetchWithTimeout = async (payload) => {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT);
+
+  try {
+    return await fetch(UPSTREAM, {
+      method: "POST",
+      headers: {
+        Authorization: AUTH,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(id);
+  }
+};
+
+/* -------------------- POST -------------------- */
 export async function POST(req) {
-  let payload = {};
+  let payload;
 
   try {
     payload = await req.json();
   } catch {
-    return NextResponse.json({ success: false, error: "Invalid JSON" }, { status: 400 });
+    return NextResponse.json({ success: true, data: { total_values: 0, data: [] } });
   }
 
   const cacheKey = `global-products:${payload.filters}:${payload.columns}:${payload.size}`;
 
-  // Redis GET
+  /* ---- Redis ---- */
   try {
     const cached = await redis.get(cacheKey);
     if (cached) {
       return NextResponse.json(JSON.parse(cached), {
-        headers: {
-          "X-Cache": "HIT",
-          "Cache-Control": "public, max-age=3600",
-        },
+        headers: { "X-Cache": "HIT" },
       });
     }
-  } catch (err) {
-    console.error("REDIS GET ERROR:", err.message);
+  } catch {}
+
+  /* ---- Deduplicate ---- */
+  if (inFlight.has(cacheKey)) {
+    return inFlight.get(cacheKey);
   }
 
-  let response;
+  const promise = (async () => {
+    try {
+      const res = await withLimit(() => fetchWithTimeout(payload));
+      const json = await res.json();
 
-  try {
-    // fetch() uses undici which has built-in connection pooling
-    const res = await fetch("http://103.30.72.94:8001/countriesProductList", {
-      method: "POST",
-      headers: {
-        Authorization: "Basic YWJjOmFiY0AxMjM=",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-      cache: "no-store",
-    });
+      const response = {
+        success: true,
+        data: {
+          total_values: json?.total_values ?? 0,
+          data: Array.isArray(json?.data) ? json.data : [],
+        },
+      };
 
-    const json = await res.json();
+      redis.set(cacheKey, JSON.stringify(response), "EX", CACHE_TTL).catch(() => {});
+      return NextResponse.json(response);
 
-    response = { success: true, data: json };
-  } catch (err) {
-    response = { success: false, error: err.message };
-  }
+    } catch {
+      // graceful degradation — NO frontend error
+      return NextResponse.json({
+        success: true,
+        data: { total_values: 0, data: [] },
+      });
+    } finally {
+      inFlight.delete(cacheKey);
+    }
+  })();
 
-  // Redis SET
-  try {
-    await redis.set(cacheKey, JSON.stringify(response), "EX", 3600);
-  } catch (err) {
-    console.error("REDIS SET ERROR:", err.message);
-  }
-
-  return NextResponse.json(response, {
-    headers: {
-      "X-Cache": "MISS",
-      "Cache-Control": "public, max-age=3600",
-    },
-  });
+  inFlight.set(cacheKey, promise);
+  return promise;
 }

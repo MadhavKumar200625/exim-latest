@@ -2,12 +2,14 @@
 
 import { NextResponse } from "next/server";
 import redis from "@/libs/redis";
-import "@/libs/httpAgent"; // Import to initialize global agents
+import "@/libs/httpAgent";
 
-export const dynamic = "force-static";
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
-// ---------- SAME 7 ENDPOINTS (DO NOT CHANGE ORDER) ----------
+/* -----------------------------------------
+   Constants
+------------------------------------------ */
 const ENDPOINTS = [
   "valueCount",
   "uniqueBuyerSupplier",
@@ -19,85 +21,81 @@ const ENDPOINTS = [
 ];
 
 const BASE_URL = "http://103.30.72.94:8011/companyReport/";
+const AUTH = "Basic YWJjOmFiY0AxMjM=";
+const CACHE_TTL = 3600;
+const UPSTREAM_TIMEOUT = 12000;
+const MAX_CONCURRENCY = 50;
 
-// ---------- Timeout Safe Fetch ----------
-const fetchWithTimeout = async (url, options, timeout = 20000) => {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeout);
+/* -----------------------------------------
+   Global concurrency + dedupe
+------------------------------------------ */
+const inFlight = global.companyInFlight || new Map();
+global.companyInFlight = inFlight;
 
-  try {
-    // fetch() uses undici which has built-in connection pooling
-    const res = await fetch(url, { 
-      ...options, 
-      signal: controller.signal
-    });
-    clearTimeout(timer);
-    return res;
-  } catch (err) {
-    clearTimeout(timer);
-    throw new Error("Timeout/Error: " + err.message);
+let activeUpstream = 0;
+async function withLimit(fn) {
+  if (activeUpstream >= MAX_CONCURRENCY) {
+    throw new Error("BUSY");
   }
-};
-
-// ---------- Safe JSON ----------
-const safeJson = (text) => {
-  if (!text || typeof text !== "string") return { data: [] };
+  activeUpstream++;
   try {
-    return JSON.parse(text);
+    return await fn();
+  } finally {
+    activeUpstream--;
+  }
+}
+
+/* -----------------------------------------
+   Helpers
+------------------------------------------ */
+const safeJson = (t) => {
+  try {
+    return JSON.parse(t);
   } catch {
     return { data: [] };
   }
 };
 
+const fetchWithTimeout = async (url, body) => {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), UPSTREAM_TIMEOUT);
+
+  try {
+    return await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: AUTH,
+      },
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(id);
+  }
+};
+
+/* -----------------------------------------
+   POST handler
+------------------------------------------ */
 export async function POST(req) {
   let body;
-
-  // ---------- SAFE BODY PARSE ----------
   try {
     body = await req.json();
   } catch {
-    return NextResponse.json(
-      { error: "Invalid JSON body" },
-      { status: 400 }
-    );
+    return NextResponse.json([], { status: 400 });
   }
 
   const { country, company } = body;
-
   if (!country || !company) {
-    return NextResponse.json(
-      { error: "country & company required" },
-      { status: 400 }
-    );
+    return NextResponse.json([], { status: 400 });
   }
 
-  // ---------- EXACT OLD LOGIC: country formatting ----------
   const formattedCountry = country.toLowerCase().replace(/\s+/g, "_");
-
-  // ---------- EXACT OLD LOGIC: company formatting ----------
   const formattedCompany = company.replaceAll("-", " ").toUpperCase();
-
-  // ---------- EXACT OLD LOGIC: customs countries ----------
-  const customsCountries =
-    "argentina,bangladesh,bolivia,botswana,burundi,cameroon,chile,colombia,costa_rica,cote_d_ivoire,dr_congo,ecuador,ethiopia,fiji,ghana,guatemala,guyana,india,indonesia,kazakhstan,kenya,kosovo,lesotho,liberia,malawi,mexico,moldova,nicaragua,nigeria,pakistan,panama,paraguay,peru,philippines,russia,rwanda,sao_tome_and_principe,sierra_leone,singapore,sri_lanka,tanzania,turkey,uganda,ukraine,uruguay,uzbekistan,venezuela,vietnam,zambia,zimbabwe"
-      .split(",");
-
-  const source = customsCountries.includes(formattedCountry)
-    ? formattedCountry
-    : "all";
-
-  // ---------- EXACT OLD LOGIC: FINAL PAYLOAD ----------
-  const payload = {
-    source,
-    type: "master",
-    country_name: formattedCountry,
-    company_name: formattedCompany,
-  };
-
-  // ---------- CACHE KEY ----------
   const cacheKey = `company:${formattedCountry}:${formattedCompany}`;
 
-  // ---------- TRY REDIS ----------
+  /* ---------- Redis ---------- */
   try {
     const cached = await redis.get(cacheKey);
     if (cached) {
@@ -105,50 +103,51 @@ export async function POST(req) {
         headers: { "X-Cache": "HIT" },
       });
     }
-  } catch (err) {
-    console.error("REDIS GET ERROR:", err.message);
+  } catch {}
+
+  /* ---------- Deduplicate ---------- */
+  if (inFlight.has(cacheKey)) {
+    return inFlight.get(cacheKey);
   }
 
-  // ---------- FETCH ALL 7 ENDPOINTS PARALLEL ----------
-  const results = await Promise.all(
-    ENDPOINTS.map(async (ep) => {
-      try {
-        const res = await fetchWithTimeout(
-          BASE_URL + ep,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Basic YWJjOmFiY0AxMjM=",
-            },
-            body: JSON.stringify(payload),
-            cache: "no-store",
-          },
-          15000
-        );
+  const promise = (async () => {
+    try {
+      const payload = {
+        source: formattedCountry,
+        type: "master",
+        country_name: formattedCountry,
+        company_name: formattedCompany,
+      };
 
-        const text = await res.text();
-        const parsed = safeJson(text);
+      const results = await Promise.all(
+        ENDPOINTS.map(async (ep) => {
+          try {
+            const res = await withLimit(() =>
+              fetchWithTimeout(BASE_URL + ep, payload)
+            );
+            const text = await res.text();
+            const json = safeJson(text);
+            return { data: Array.isArray(json.data) ? json.data : [] };
+          } catch {
+            return { data: [] };
+          }
+        })
+      );
 
-        // IMPORTANT: ALWAYS RETURN { data: [...] }
-        return {
-          data: Array.isArray(parsed.data) ? parsed.data : [],
-        };
-      } catch (err) {
-        return { data: [] };
-      }
-    })
-  );
+      redis.set(cacheKey, JSON.stringify(results), "EX", CACHE_TTL).catch(() => {});
+      return NextResponse.json(results);
 
-  // ---------- SAVE TO REDIS ----------
-  try {
-    await redis.set(cacheKey, JSON.stringify(results), "EX", 3600);
-  } catch (err) {
-    console.error("REDIS SET ERROR:", err.message);
-  }
+    } catch {
+      // graceful degradation (NO crash)
+      return NextResponse.json(
+        ENDPOINTS.map(() => ({ data: [] })),
+        { status: 200 }
+      );
+    } finally {
+      inFlight.delete(cacheKey);
+    }
+  })();
 
-  // ---------- RETURN EXACT OLD SHAPE ----------
-  return NextResponse.json(results, {
-    headers: { "X-Cache": "MISS" },
-  });
+  inFlight.set(cacheKey, promise);
+  return promise;
 }

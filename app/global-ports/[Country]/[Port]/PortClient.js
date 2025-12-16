@@ -56,6 +56,10 @@ export default function PortClient({ country, port }) {
   if (!data)
     return <p className="p-8 text-center">No data available</p>;
 
+  if (!data?.section4) {
+  return <p className="p-8 text-center">Data temporarily unavailable</p>;
+}
+
   return (
     <>
       <Overview portName={data.portName} stats={data.section2} />
