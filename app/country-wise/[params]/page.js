@@ -120,9 +120,7 @@ export async function generateMetadata({ params }) {
 
 export default function Page({ params }) {
   const slug = normalizeSlug(params.params);
-  const rawCountry = countriesData[slug];
-
-  const defaultData = {
+    const defaultData = {
     hero_section: {
       description: `Discover business opportunities in ${slug.replace(/^./, (s) => s.toUpperCase())} through reliable and up-to-date import-export data. Our platform offers historical and current ${slug} Import Data, customs data 2025, allowing you to explore trade patterns, find verified buyers and suppliers, and develop strategic marketing plans. Get accurate and verified information based on ${slug} customs data. Identify year-wise ${slug} imports and exports by HS code, country, product, and access ${slug} buyers list, ${slug} suppliers list, and ports volume reports. You can also access a trade API to integrate this data into your workflows.`
     },
@@ -239,8 +237,10 @@ export default function Page({ params }) {
       ]
     }
   };
+  const rawCountry = countriesData[slug] || defaultData;
 
-  if (!rawCountry) return defaultData;
+
+
 
   const country = normalizeCountryData(rawCountry, slug);
 
