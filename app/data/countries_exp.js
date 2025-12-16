@@ -25,13 +25,13 @@ export const countriesData={
         "title": "Where Does UAE Export To?",
         "description": "Saudi Arabia was the top export destination with 6.41% share in overall UAE exports for 2025.",
         "data": [
-            [
+            
                 { "country": "Saudi Arabia", "value": "25" },
                 { "country": "India", "value": "22.22" },
                 { "country": "Japan", "value": "21.30" },
                 { "country": "Iraq", "value": "20.37" },
                 { "country": "United States", "value": "11.11" }
-            ]
+            
             
           ]
       
@@ -83,11 +83,11 @@ export const countriesData={
         "title": "Where Does Nicaragua Export To?",
         "description": "The USA was the top exporter of goods from Nicaragua during 2024-25. Export value-wise, Nicaragua's top 10 export partners were the USA, China, Honduras, Mexico, Guatemala, Nicaragua, Costa Rica, El Salvador, India, Ecuador. The top 10 export partners of Nicaragua had exported around $245.11 Million worth of goods. Here, we shared the chart indicating the main export partners of Nicaragua for better understanding. Further, you can ask for the year-wise Nicaragua export data by country.",
         "data": [
-			[{ "country": "USA", "value": "66.48" },
+			{ "country": "USA", "value": "66.48" },
 			{ "country": "China", "value": "41.38" },
 			{ "country": "Honduras", "value": "25.91" },
 			{ "country": "Mexico", "value": "24.31" },
-			{ "country": "Guatemala", "value": "22.44" }]
+			{ "country": "Guatemala", "value": "22.44" }
 		  ]
       },
       "trusted_clients": {
@@ -704,12 +704,12 @@ export const countriesData={
       "title": "Where Does Ghana Export To?",
       "description": "Kenya Customs Shipment Data suggests that Uganda is the largest exporter of goods from Kenya. In terms of total export share, Kenya’s Top export Trading Partners in 2024 were DR Congo - $2813.4 M, United Arab Emirates - $2273.7 M, China- $1231.6 M, India - $594.1 M, Oman- $539.2 M. In the chart mentioned below, we have provided a detailed analysis of Kenya’s top 10 trading partners based on total export value and total export share.",
       "data": [
-        [ { "country": "DR Congo", "value": "$2813.4 M" },
+         { "country": "DR Congo", "value": "$2813.4 M" },
           { "country": "United Arab Emirates", "value": "$2273.7 M" },
           { "country": "China", "value": "$1231.6 M" },
           { "country": "India", "value": "$594.1 M" },
           { "country": "Oman", "value": "$539.2 M" }
-        ]]
+        ]
     },
     "trusted_clients": {
       "title": "Trusted by Industry Leaders",

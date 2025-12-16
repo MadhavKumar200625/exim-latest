@@ -15,12 +15,10 @@ import { countriesData } from "../../data/countries_imp";
 import { notFound } from "next/navigation";
 
 /* ---------------- HELPERS ---------------- */
-
 const normalizeSlug = (slug = "") =>
   slug.toLowerCase().replace(/\s+/g, "-");
 
 /* ---------------- METADATA ---------------- */
-
 export async function generateMetadata({ params }) {
   const slug = normalizeSlug(params.params);
   const country = countriesData[`${slug}_import_section`];
@@ -87,30 +85,36 @@ export async function generateMetadata({ params }) {
 }
 
 /* ---------------- PAGE ---------------- */
-
 export default function Page({ params }) {
   const slug = normalizeSlug(params.params);
 
-  let countryData = countriesData[`${slug}_import_section`];
-
-  if (!countryData) {
-    notFound();
-  }
-
+  /* ---------- OLD FALLBACK (UNCHANGED CONTENT) ---------- */
   const defaultData = {
     title: `${slug.replace(/^./, (s) => s.toUpperCase())} Import Customs Shipment Trade Data`,
-    description: `Gain comprehensive insights into ${slug.replace(/^./, (s) => s.toUpperCase())}'s import landscape with verified customs shipment data.`,
+    description: `Gain comprehensive insights into the ${slug.replace(/^./, (s) => s.toUpperCase())}'s import landscape with the most up-to-date customs shipment data.`,
     what_included: {
-      desc_1: "",
+      desc_1: `Our ${slug.replace(/^./, (s) => s.toUpperCase())} Import Shipment Data provides detailed and verified information sourced from customs records.`,
       desc_2: "",
     },
-    top_import_products: { description: "", data: [] },
-    import_sources: { description: "", data: [] },
-    trusted_clients: { description: "", companies: [] },
-    grow_with_intelligence: { benefits: [] },
+    top_import_products: {
+      description: "",
+      data: [],
+    },
+    import_sources: {
+      description: "",
+      data: [],
+    },
+    trusted_clients: {
+      description: "",
+      companies: [],
+    },
+    grow_with_intelligence: {
+      benefits: [],
+    },
   };
 
-  countryData = { ...defaultData, ...countryData };
+  let countryData =
+    countriesData[`${slug}_import_section`] || defaultData;
 
   return (
     <main>
@@ -133,31 +137,29 @@ export default function Page({ params }) {
 
       <What
         country={slug}
-        description={countryData.top_import_products.description}
-        data={countryData.top_import_products.data}
+        description={countryData.top_import_products?.description || ""}
+        data={countryData.top_import_products?.data || []}
       />
 
       <Who
         country={slug}
-        description={countryData.import_sources.description}
-        data={countryData.import_sources.data}
+        description={countryData.import_sources?.description || ""}
+        data={countryData.import_sources?.data || []}
       />
 
       <Suppliers
-        description={countryData.trusted_clients.description}
-        data={countryData.trusted_clients.companies}
+        description={countryData.trusted_clients?.description || ""}
+        data={countryData.trusted_clients?.companies || []}
       />
 
       <ClientsSection />
 
       <GlobalImpact
-        points={countryData.grow_with_intelligence.benefits}
+        points={countryData.grow_with_intelligence?.benefits || []}
       />
 
       <ImportantLinks country={slug} />
-
       <FindWhat country={slug} />
-
       <GetTradeData />
     </main>
   );

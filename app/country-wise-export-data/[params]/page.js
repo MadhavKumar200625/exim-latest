@@ -4,6 +4,7 @@ import CountryLinksSection from "./CountryLinksSection";
 import Includes from "./Includes";
 import What from "./What";
 import Who from "./Who";
+import Suppliers from "./Suppliers";
 import ClientsSection from "../../components/ClientsSection";
 import GlobalImpact from "./GlobalImpact";
 import ImportantLinks from "./ImportantLinks";
@@ -11,8 +12,6 @@ import FindWhat from "./FindWhat";
 import GetTradeData from "./GetTradeData";
 
 import { countriesData } from "../../data/countries_exp";
-import { notFound } from "next/navigation";
-import Suppliers from "./Suppliers";
 
 /* ---------- helpers ---------- */
 const normalizeSlug = (slug = "") =>
@@ -61,7 +60,7 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url:
-            country?.openGraph?.images?.[0] ||
+            country?.openGraph?.image ||
             "https://eximtradedata.com/images/logo.png",
           alt: "Exim Trade Data Logo",
         },
@@ -77,7 +76,7 @@ export async function generateMetadata({ params }) {
         country?.twitter?.url ||
         `https://eximtradedata.com/country-wise-${slug}-export-data`,
       images: [
-        country?.twitter?.images?.[0] ||
+        country?.twitter?.image ||
           "https://eximtradedata.com/images/logo.png",
       ],
     },
@@ -90,9 +89,47 @@ export default function Page({ params }) {
 
   let countryData = countriesData[`${slug}_export_section`];
 
-  // ❌ Invalid country → 404 (important for SEO)
+  /* ---------- DEFAULT FALLBACK (UNCHANGED LOGIC) ---------- */
+  const defaultData = {
+    title: `${slug.replace(/^./, (s) => s.toUpperCase())} Export Customs Shipment Trade Data`,
+    description: `Gain comprehensive insights into the ${slug.replace(/^./, (s) =>
+      s.toUpperCase())}'s export landscape with the most up-to-date customs shipment data.`,
+    what_included: {
+      title: "What’s Included in Our Export Data?",
+      desc_1: `Our ${slug.replace(/^./, (s) =>
+        s.toUpperCase())} Export Shipment Data provides detailed and verified information sourced from customs records.`,
+    },
+    top_export_products: {
+      title: `Top Export Products from ${slug}`,
+      description: `As per ${slug} Export Statistics, the country’s top exports are listed below.`,
+      data: [],
+    },
+    export_destinations: {
+      title: `Export Destinations for ${slug}`,
+      description: `Top export destinations for ${slug}.`,
+      data: [],
+    },
+    trusted_clients: {
+      title: "Trusted by Industry Leaders",
+      description:
+        "Join the list of prestigious clients who trust our comprehensive export data.",
+      data: [],
+    },
+    grow_with_intelligence: {
+      title: "Grow Your Export Potential with Global Trade Intelligence",
+      benefits: [
+        "Explore 200+ global markets",
+        "Track market trends and competitors",
+        "Locate verified buyers and suppliers",
+        "Enhance your market entry strategy",
+        "Get actionable insights to boost ROI",
+      ],
+    },
+  };
+
+  /* ---------- USE DEFAULT IF DATA MISSING ---------- */
   if (!countryData) {
-    notFound();
+    countryData = defaultData;
   }
 
   return (
