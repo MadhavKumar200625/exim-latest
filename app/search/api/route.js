@@ -6,7 +6,7 @@ import "@/libs/httpAgent";
 /* -----------------------------------------
    Runtime & caching behavior
 ------------------------------------------ */
-export const dynamic = "force-dynamic"; // ❗ NEVER static for POST
+export const dynamic = "force-dynamic"; 
 export const revalidate = 0;
 
 /* -----------------------------------------
