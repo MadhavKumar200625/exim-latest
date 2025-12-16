@@ -59,41 +59,97 @@ export default function SearchClient({ params }) {
       try {
         // Call internal API route which has Redis caching
         const res = await fetch("https://test.eximtradedata.com/search/api", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(queryParams),
-          signal: controller.signal,
-        });
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(queryParams),
+  signal: controller.signal,
+});
 
-        if (!res.ok) throw new Error(`API failed (${res.status})`);
+// 1️⃣ Network / HTTP failure
+if (!res.ok) {
+  throw new Error(`Service unavailable (${res.status})`);
+}
 
-        const json = await res.json();
+// 2️⃣ Content-Type guard
+const contentType = res.headers.get("content-type") || "";
+if (!contentType.includes("application/json")) {
+  throw new Error("Invalid server response");
+}
 
-        if (!json || !json.success || !json.data) {
-          // If upstream returns error shape, throw to show friendly error
-          throw new Error(json?.message || "Invalid API response");
-        }
+// 3️⃣ SAFE JSON parse (NEVER throws)
+let json;
+try {
+  const text = await res.text();
+  json = JSON.parse(text);
+} catch {
+  throw new Error("Malformed server response");
+}
 
-        const api = json.data;
+// 4️⃣ Shape validation
+if (!json || json.success !== true || typeof json.data !== "object") {
+  throw new Error(json?.message || "Service temporarily unavailable");
+}
+
+        const api = {
+  data: Array.isArray(json.data?.data) ? json.data.data : [],
+  unique: Array.isArray(json.data?.unique) ? json.data.unique : [],
+};
 
         // replicate server-side conversion exactly:
-        const filters = {
-          hsCodes: (api.unique || []).filter((u) => u.startsWith("hs_code")).map((u) => u.split(":")[1].split(",")[0].trim()),
-          countries: (api.unique || []).filter((u) => u.startsWith(queryParams.type === "export" ? "destination_country" : "origin_country")).map((u) => u.split(":")[1].split(",")[0].trim()),
-          ports: (api.unique || []).filter((u) => u.startsWith(queryParams.type === "export" ? "Port_of_loading" : "Port_of_Unloading")).map((u) => u.split(":")[1].split(",")[0].trim()),
-        };
+        const safeUnique = api.unique.filter((u) => typeof u === "string");
 
-        const rows = (api.data || []).map((d) => ({
-          date: d._source?.date,
-          hsCode: d._source?.hs_code,
-          product: d._source?.Product_Description,
-          exporter: queryParams.type === "export" ? d._source?.exporter : d._source?.importer,
-          qty: d._source?.quantity,
-          unit: d._source?.unit,
-          value: d._source?.total_value_usd,
-          origin: queryParams.type === "export" ? d._source?.destination_country : d._source?.origin_country,
-          port: queryParams.type === "export" ? d._source?.Port_of_Loading : d._source?.Port_of_Unloading,
-        }));
+const filters = {
+  hsCodes: safeUnique
+    .filter((u) => u.startsWith("hs_code:"))
+    .map((u) => u.split(":")[1]?.split(",")[0]?.trim())
+    .filter(Boolean),
+
+  countries: safeUnique
+    .filter((u) =>
+      u.startsWith(
+        queryParams.type === "export"
+          ? "destination_country:"
+          : "origin_country:"
+      )
+    )
+    .map((u) => u.split(":")[1]?.split(",")[0]?.trim())
+    .filter(Boolean),
+
+  ports: safeUnique
+    .filter((u) =>
+      u.startsWith(
+        queryParams.type === "export"
+          ? "Port_of_loading:"
+          : "Port_of_Unloading:"
+      )
+    )
+    .map((u) => u.split(":")[1]?.split(",")[0]?.trim())
+    .filter(Boolean),
+};
+
+       const rows = api.data
+  .filter((d) => d && typeof d === "object")
+  .map((d) => {
+    const s = d._source || {};
+    return {
+      date: s.date || "-",
+      hsCode: s.hs_code || "-",
+      product: s.Product_Description || "-",
+      exporter:
+        queryParams.type === "export" ? s.exporter || "-" : s.importer || "-",
+      qty: s.quantity || "-",
+      unit: s.unit || "-",
+      value: s.total_value_usd || "-",
+      origin:
+        queryParams.type === "export"
+          ? s.destination_country || "-"
+          : s.origin_country || "-",
+      port:
+        queryParams.type === "export"
+          ? s.Port_of_Loading || "-"
+          : s.Port_of_Unloading || "-",
+    };
+  });
 
         const sec1Heading = `Latest ${formatText(queryParams.country).replace(/^./, (s) => s.toUpperCase())} ${queryParams.type.replace(/^./, (s) => s.toUpperCase())} Data` + (queryParams.product ? ` of ${formatText(queryParams.product).replace(/^./, (s) => s.toUpperCase())}` : "") + (queryParams.hscode ? ` Under HS Code ${queryParams.hscode}` : "") + (queryParams.countryin ? ` to ${formatText(queryParams.countryin)}` : "");
 
@@ -127,7 +183,18 @@ export default function SearchClient({ params }) {
   }, [raw.join("|")]);
 
   if (loading) return <p className="p-10 text-center text-lg">Loading search results…</p>;
-  if (err) return <p className="p-10 text-center text-red-600">Failed to load search data: {err}</p>;
+if (err) {
+  return (
+    <div className="p-10 text-center">
+      <p className="text-red-600 text-lg font-semibold">
+        We&apos;re experiencing heavy traffic
+      </p>
+      <p className="text-gray-500 mt-2">
+        Please refresh or try again in a moment.
+      </p>
+    </div>
+  );
+}
 
   return (
     <main>
