@@ -1,10 +1,25 @@
 "use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import React from "react";
-import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+/* ---------------------------------------------------
+   SAFE BASE URL (prevents hydration crashes)
+--------------------------------------------------- */
+const baseURL =
+  process.env.NEXT_PUBLIC_BASE_URL || "https://eximtradedata.com";
+
+/* ---------------------------------------------------
+   SAFE SLUG HELPER
+--------------------------------------------------- */
+const slugify = (str = "") =>
+  str
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/\s+/g, "-");
+
+
 const countries = [
   {
     name: "Armenia",
@@ -740,7 +755,7 @@ const countries = [
     flag: "https://flagcdn.com/lu.svg",
     link_main:`${baseURL}/country-wise-luxembourg-import-export-data`,
     link_imp :`${baseURL}/country-wise-luxembourg-import-data`,
-    link_exp:`{baseURL}/country-wise-luxembourg-export-data`, 
+    link_exp:`${baseURL}/country-wise-luxembourg-export-data`, 
   
   },
   {
@@ -1108,7 +1123,7 @@ const newCountries = [
   
 //console.log(generateLink(country));
 
-const Countries = () => {
+export default function Countries() {
   const continents = [...new Set(countries.map((c) => c.continent))];
   const [activeContinent, setActiveContinent] = useState(continents[0]);
 
@@ -1123,129 +1138,120 @@ const Countries = () => {
         Country wise Import Export Data
       </h2>
 
-      {/* Subheading */}
       <p className="text-base text-black text-center max-w-4xl mx-auto mb-8">
-        Access the accurate import export data statistics of 200+ countries
-        based on customs data reported by other countries. Find shipment records
-        by HS Code, product description, quantity, unit, value, country of
-        origin/destination, importer name, exporter name and port of
-        loading/unloading shipping information.
+        Access accurate import export data for 200+ countries based on global
+        customs shipment records.
       </p>
 
       {/* Tabs */}
       <div className="flex flex-wrap justify-center gap-3 mb-8">
-  {continents.map((continent) => (
-    continent && (  // Check if continent is truthy
-      <button
-        key={continent}
-        onClick={() => setActiveContinent(continent)}
-        className={`px-4 py-2 rounded-lg font-medium border ${
-          activeContinent === continent
-            ? "bg-blue-600 text-white border-blue-600"
-            : "bg-white text-black border-gray-300 hover:bg-gray-100"
-        }`}
-      >
-        <p>{`${continent}`}</p>
-      </button>
-    )
-  ))}
-</div>
+        {continents.map((continent) => (
+          <button
+            key={continent}
+            onClick={() => setActiveContinent(continent)}
+            className={`px-4 py-2 rounded-lg font-medium border ${
+              activeContinent === continent
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-black border-gray-300 hover:bg-gray-100"
+            }`}
+          >
+            {continent}
+          </button>
+        ))}
+      </div>
 
-
-      {/* Continent Heading */}
+      {/* Continent Title */}
       <h3 className="text-2xl font-semibold text-black mb-6 text-center">
         {activeContinent} Import-Export Trade Data
       </h3>
-    
-      {/* Country Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  xl:px-20">
-        {filteredCountries.map((country) => (
-          <div
-            key={country.link_main}
-            className="relative group flex items-center gap-4 p-4 text-white border border-blue-300 rounded-xl shadow hover:shadow-lg transition"
-          >
-            {/* Flag */}
-            <Link
-              href={country.link_main}
-            >
-              <img
-                src={country.flag}
-                alt={country.name}
-                className="w-18 h-auto "
-              />
-            </Link>
 
-            {/* Country Info */}
-            <div className="flex flex-col">
-            
-              <Link
-                href={country.link_main}
-                // className="flex items-center gap-1 font-semibold md:text-xl text-lg underline text-blue-600"
-                className="flex items-center gap-1 font-semibold md:text-xl text-lg hover:underline text-black hover:text-blue-600"
-              >
-                {country.name.replace(/^./, (s) => s.toUpperCase())} Import Export Data
+      {/* Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:px-20">
+        {filteredCountries.map((country) => {
+          const slug = slugify(country.name);
+
+          return (
+            <div
+              key={country.link_main}
+              className="relative group flex items-center gap-4 p-4 border border-blue-300 rounded-xl shadow hover:shadow-lg transition"
+            >
+              {/* Flag */}
+              <Link href={country.link_main}>
+                <img
+                  src={country.flag}
+                  alt={country.name}
+                  loading="lazy"
+                  onError={(e) => (e.currentTarget.style.display = "none")}
+                  className="w-16 h-auto"
+                />
               </Link>
-              <div className="flex gap-2 mt-2">
+
+              {/* Info */}
+              <div className="flex flex-col">
                 <Link
-                  href={country.link_imp}
-                  className="text-sm px-3 py-1 bg-transparent shadow-md text-black border border-blue-600 hover:text-white hover:bg-blue-600  hover:scale-108 transition"
+                  href={country.link_main}
+                  className="font-semibold text-lg hover:underline text-black hover:text-blue-600"
                 >
-                  Import Data
+                  {country.name} Import Export Data
                 </Link>
-                <Link
-                  href={country.link_exp}
-                  className="text-sm px-3 py-1 bg-transparent shadow-md text-black border border-blue-600 hover:border-0 hover:text-white hover:bg-orange-500  hover:scale-108 transition"
-                >
-                  Export Data
-                </Link>
+
+                <div className="flex gap-2 mt-2">
+                  <Link
+                    href={country.link_imp}
+                    className="text-sm px-3 py-1 border border-blue-600 text-black hover:bg-blue-600 hover:text-white transition"
+                  >
+                    Import Data
+                  </Link>
+                  <Link
+                    href={country.link_exp}
+                    className="text-sm px-3 py-1 border border-orange-500 text-black hover:bg-orange-500 hover:text-white transition"
+                  >
+                    Export Data
+                  </Link>
+                </div>
               </div>
+
+              {/* Other Links */}
+              {country.otherLinks && (
+                <div className="absolute top-full right-0 w-full mt-2 bg-white border z-50 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition">
+                  <h4 className="px-4 py-2 font-semibold border-b">
+                    Other Links
+                  </h4>
+                  <ul className="p-4 space-y-2">
+                    <li>
+                      <Link
+                        href={`/global-products/product-A/country-${slug}/type-export/pg-1`}
+                        className="flex items-center text-sm underline"
+                      >
+                        {country.name} Export Products
+                        <ArrowUpRight className="ml-1 w-4 h-4" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href={`/global-products/product-A/country-${slug}/type-import/pg-1`}
+                        className="flex items-center text-sm underline"
+                      >
+                        {country.name} Import Products
+                        <ArrowUpRight className="ml-1 w-4 h-4" />
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href={`/global-companies-list/${slug}/A-1`}
+                        className="flex items-center text-sm underline"
+                      >
+                        {country.name} Companies
+                        <ArrowUpRight className="ml-1 w-4 h-4" />
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
-            {country.otherLinks && (
-              <div
-                className="absolute top-full right-0 w-full mt-2 bg-white border z-50 rounded-lg shadow-lg 
-  opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto 
-  transition duration-300 delay-300 group-hover:delay-0"
-              >
-                {" "}
-                <h4 className="px-4 py-2 font-semibold text-black border-b">
-                  Other Links
-                </h4>
-                <ul className="p-4 space-y-2">
-                  <li>
-                    <Link
-                      href={`/global-products/product-A/country-${country.name.toLowerCase()}/type-export/pg-1`}
-                      className="flex items-center text-sm text-black underline hover:text-blue-600"
-                    >
-                      {country.name} Export Products{" "}
-                      <ArrowUpRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/global-products/product-A/country-${country.name.toLowerCase()}/type-import/pg-1`}
-                      className="flex items-center text-sm text-black underline hover:text-blue-600"
-                    >
-                      {country.name} Import Products{" "}
-                      <ArrowUpRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={`/global-companies-list/${country.name.toLowerCase()}/A-1`}
-                      className="flex items-center text-sm text-black underline hover:text-blue-600"
-                    >
-                      {country.name} Companies List{" "}
-                      <ArrowUpRight className="ml-1 w-4 h-4" />
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
-};
-
-export default Countries;
+}

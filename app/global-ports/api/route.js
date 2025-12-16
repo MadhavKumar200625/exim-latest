@@ -114,12 +114,22 @@ export async function POST(req) {
 
   const promise = (async () => {
     try {
-      const payload = {
-        source: country.toLowerCase(),
-        type: "master",
-        country_name: country,
-        port_name: port,
-      };
+      const customsCountries = [
+  "argentina","bangladesh","bolivia","botswana","burundi",
+  "cameroon","chile","colombia","costa_rica","cote_d_ivoire",
+  "dr_congo","ecuador"
+];
+
+const source = customsCountries.includes(country.toLowerCase())
+  ? country.toLowerCase()
+  : "all";
+
+const payload = {
+  source,
+  type: "master",
+  country_name: country,
+  port_name: port,
+};
 
       const results = await Promise.all(
         URLS.map(async (url) => {
