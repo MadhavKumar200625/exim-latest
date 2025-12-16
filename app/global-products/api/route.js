@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 /* -------------------- constants -------------------- */
-const UPSTREAM = "http://103.30.72.94:8001/countriesProductList";
+const UPSTREAM = "http://103.30.72.94:8011/countriesProductList";
 const AUTH = "Basic YWJjOmFiY0AxMjM=";
 const CACHE_TTL = 3600;
 const UPSTREAM_TIMEOUT = 10000;
