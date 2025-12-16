@@ -169,13 +169,13 @@ export const countriesData={
           "export_destinations": {
             "title": "Where Does USA Export To?",
             "description": "In 2025, Canada was the leading destination for USA exports. Canada was responsible for 17% share of the USA's total exports. In terms of export value, the USA’s top 10 export partners were Canada ($351 Billion), Mexico ($324 Billion), China ($145 Billion), Netherlands ($80 Billion), Germany ($74 Billion), Japan ($74 Billion), United Kingdom ($73 Billion), South Korea ($62 Billion), France ($43 Billion) and Brazil ($42 Billion). The top 10 destinations accounted for approximately $1.2 trillion, or 63.4% of total U.S. exports. In February 2024, USA exports rose to $264 billion, up $5.7 billion from January 2024. You can request country-wise export statistics, year-on-year trends, or product-specific data to support your business strategy.",
-      "data": [[
+      "data": [
         { "country": "Canada", "value": "$351B" },
         { "country": "Mexico", "value": "$324B" },
         { "country": "China", "value": "$145B" },
         { "country": "Netherlands", "value": "$80B" },
         { "country": "Germany", "value": "$74B" }]
-      ]
+      
             
           },
           "trusted_clients": {
@@ -260,13 +260,13 @@ export const countriesData={
             "title": "Where Does Cameroon Export To?",
             "description": "China was the top exporter of goods from Cameroon during 2024-25. Cameroon's exports are geographically diverse, with the top 10 export partners being China, Cameroon, France, Togo, Belgium, India, Switzerland, Singapore, United Arab Emirates, and Thailand. In 2025, these 10 partners accounted for $7.11 billion in exports from Cameroon. We had shared the chart indicating the main export partners of Cameroon for better understanding. Further, you can ask for the year-wise Cameroon export data by country.",
              	 
-              "data": [[
+              "data": [
                 { "country": "China", "value": "$1.97B" },
                 { "country": "Cameroon", "value": "$1.21B" },
                 { "country": "France", "value": "$796.73M" },
                 { "country": "Togo", "value": "$760.78M" },
                 { "country": "Belgium", "value": "$585.51M" }
-              ]]
+              ]
           },
           "trusted_clients": {
             "title": "Trusted by Industry Leaders",
@@ -442,13 +442,13 @@ export const countriesData={
       "export_destinations": {
         "title": "Where Does Ghana Export To?",
         "description": "Ghana Customs Shipment Data suggests that China is the largest importer of goods from Ghana. Ghana export data partners based on 2024 data include Ghana - $2813.4 M, China - $2273.7 M, Unknown - $1231.6 M, India - $594.1 M, USA - $539.2 M, Belgium - $298.2 M, United Arab Emirates - $290.4 M, South Africa - $198.3 M, Canada - $183.6 M, United Kingdom - $178.0 M.These ten countries together accounted for $12.58 billion USD, or 74.30% of Ghana’s total exports. In the chart mentioned below, we have provided a detailed analysis of Ghana’s top 10 trading partners based on total export value and total export share.",
-        "data": [[
+        "data": [
             { "country": "Ghana", "value": "$2813.4 M" },
             { "country": "China", "value": "$2273.7 M" },
             { "country": "Unknown", "value": "$1231.6 M" },
             { "country": "India", "value": "$594.1 M" },
             { "country": "USA", "value": "$539.2 M" }
-          ]]
+          ]
       },
       "trusted_clients": {
         "title": "Trusted by Industry Leaders",
@@ -519,13 +519,13 @@ export const countriesData={
       "export_destinations": {
         "title": "Where Does Turkey Export To?",
         "description": "Germany was the leading destination for Turkish exports in 2025. As per the Turkey export details reports, Germany was responsible for $22 billion worth of exports from Turkey during 2025. Germany’s major exports from Turkey were cars, motor parts, engine parts, knitted clothes, and aluminium bars. Export value-wise, Turkey’s top 5 export partners were Afghanistan - $69.85 M, Albania - $347.16 M, Algeria - $998.11 M, American Samoa - $19260 USD, and Andorra - $245235 USD during 2024. Below, we shared the chart depicting Turkey's main export partners by percentage share. Also, you can request the year-wise Turkey export data by country.",
-        "data": [[
+        "data": [
             { "country": "AFGHANISTAN", "value": "$69.85 M" },
             { "country": "ALBANIA", "value": "$347.16 M" },
             { "country": "ALGERIA", "value": "$998.11 M" },
             { "country": "AMERICAN SAMOA", "value": "$10.2 M" },
             { "country": "ANDORRA", "value": "$8.4 M" }
-          ]]
+          ]
       },
       "trusted_clients": {
         "title": "Trusted by Industry Leaders",
