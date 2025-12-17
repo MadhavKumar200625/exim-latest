@@ -9,7 +9,7 @@ const SearchGlobalData = ({ data }) => {
         {/* Left Image */}
         <div className="w-full flex justify-center">
           <div className="relative w-full max-w-md md:h-96   ">
-            <Image
+            <img
               src="/search-data-results/search-global-export-import-trade-data.webp"
               alt={data?.heading || "Search global export import trade data"}
               fill

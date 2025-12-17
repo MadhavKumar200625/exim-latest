@@ -133,7 +133,7 @@ export const countriesData={
         "description": "At Exim Trade Data, access Nicaragua Export Data, Nicaragua customs data and Nicaragua shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
         "siteName": "Exim Trade Data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       },
       "twitter": {
@@ -144,7 +144,7 @@ export const countriesData={
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/country-wise-nicaragua-export-data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       }
     },
@@ -222,7 +222,7 @@ export const countriesData={
     "description": "At Exim Trade Data, access USA Export Data, USA customs data and USA shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -233,7 +233,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-usa-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
         },
@@ -311,7 +311,7 @@ export const countriesData={
         "description": "At Exim Trade Data, access Cameroon Export Data, Cameroon customs data and Cameroon shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
         "siteName": "Exim Trade Data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       },
       "twitter": {
@@ -322,7 +322,7 @@ export const countriesData={
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/country-wise-cameroon-export-data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       }
         },
@@ -402,7 +402,7 @@ export const countriesData={
     "description": "At Exim Trade Data, access Sri Lanka Export Data, Sri Lanka customs data and Sri Lanka shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -413,7 +413,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-sri-lanka-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
     },
@@ -491,7 +491,7 @@ export const countriesData={
         "site": "@eximtradedata",
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/ghana-export-data",
-        "images": ["https://eximtradedata.com/images/logo.png"],
+        "images": ["/logo.png"],
     }
     
     },
@@ -570,7 +570,7 @@ export const countriesData={
         "description": "At Exim Trade Data, access Turkey Export Data, Turkey customs data and Turkey shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
         "siteName": "Exim Trade Data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       },
       "twitter": {
@@ -581,7 +581,7 @@ export const countriesData={
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/country-wise-turkey-export-data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       }
     },
@@ -662,7 +662,7 @@ export const countriesData={
     "description": "At Exim Trade Data, access Tanzania Export Data, Tanzania customs data and Tanzania shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -673,7 +673,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-tanzania-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
     
@@ -755,7 +755,7 @@ export const countriesData={
     "description": "At Exim Trade Data, access Kenya Export Data, Kenya customs data and Kenya shipment data with details on products, buyers, suppliers, ports, and trade statistics.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -766,7 +766,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-kenya-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
   },

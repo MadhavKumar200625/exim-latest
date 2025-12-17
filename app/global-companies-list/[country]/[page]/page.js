@@ -20,13 +20,13 @@ export async function generateMetadata(context) {
       title: `${formatted} Import Export Trade Data, Buyers, Suppliers`,
       description: `Get updated ${formatted} company directory with buyers and suppliers.`,
       url: fullUrl,
-      images: [{ url: "https://eximtradedata.com/images/logo.svg" }],
+      images: [{ url: "/logo.png" }],
     },
     twitter: {
       card: "summary",
       title: `${formatted} Import Export Trade Data`,
       description: `Explore ${formatted} companies list and shipment database.`,
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

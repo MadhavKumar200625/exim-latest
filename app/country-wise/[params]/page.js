@@ -7,9 +7,9 @@ import ImportantLinks from "./ImportantLinks";
 import MarketIntel from "./MarketIntel";
 import CtaImage from "./CtaImage";
 import FAQSection from "../../components/FAQ";
-import { Hero } from "./Hero";
 import { countriesData } from "../../data/countries";
 import { notFound } from "next/navigation";
+import  Hero  from "./Hero";
 
 /* ---------------- HELPERS ---------------- */
 
@@ -100,7 +100,7 @@ export async function generateMetadata({ params }) {
         {
           url:
             country?.openGraph?.images?.[0] ||
-            "https://eximtradedata.com/images/logo.png",
+            "/logo.png",
         },
       ],
     },
@@ -110,7 +110,7 @@ export async function generateMetadata({ params }) {
       description,
       images: [
         country?.twitter?.images?.[0] ||
-          "https://eximtradedata.com/images/logo.png",
+          "/logo.png",
       ],
     },
   };

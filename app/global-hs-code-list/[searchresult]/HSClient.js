@@ -110,33 +110,33 @@ export default function HSClient({ searchresult }) {
                 {recordset.map((row, idx) => (
                   <tr key={idx} className={`${rowColors[idx % 3]} hover:bg-gray-100`}>
                     <td className="px-6 py-4 border-b font-semibold">
-                      <Link href={`/global-hs-code-list/hs-code-${row.hs_code}`}>
+                      <a href={`/global-hs-code-list/hs-code-${row.hs_code}`}>
                         {row.hs_code}
-                      </Link>
+                      </a>
                     </td>
 
                     <td className="px-6 py-4 border-b border-l">
-                      <Link href={`/global-hs-code-list/hs-code-${row.hs_code}`}>
+                      <a href={`/global-hs-code-list/hs-code-${row.hs_code}`}>
                         {row.item_description}
-                      </Link>
+                      </a>
                     </td>
 
                     <td className="px-4 py-4 border-b border-l">
-                      <Link
+                      <a
                         href={`/search/country-vietnam/type-import/hscode-${row.hs_code}`}
                         className="block text-center bg-blue-600 text-white px-3 py-2"
                       >
                         View Import
-                      </Link>
+                      </a>
                     </td>
 
                     <td className="px-4 py-4 border-b border-l">
-                      <Link
+                      <a
                         href={`/search/country-vietnam/type-export/hscode-${row.hs_code}`}
                         className="block text-center bg-gray-600 text-white px-3 py-2"
                       >
                         View Export
-                      </Link>
+                      </a>
                     </td>
                   </tr>
                 ))}

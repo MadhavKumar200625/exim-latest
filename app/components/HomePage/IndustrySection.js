@@ -7,22 +7,22 @@ const industries = [
   {
     name: "Importers",
     desc: "Leading Trade Intelligence Platform for Global Importers",
-    img: "https://eximtradedata.com/images/importer_md_banner1.webp",
+    img: "https://old-net.eximtradedata.com/images/importer_md_banner1.webp",
   },
   {
     name: "Exporters",
     desc: "Enhance Your Sales Potential with Our Global Exporters Database",
-    img: "https://eximtradedata.com/images/exporters_md_banner1.webp",
+    img: "https://old-net.eximtradedata.com/images/exporters_md_banner1.webp",
   },
   {
     name: "Corporation",
     desc: "Best Market Intelligence Platform for Corporate Companies",
-    img: "https://eximtradedata.com/images/corporation_md_banner1.webp",
+    img: "https://old-net.eximtradedata.com/images/corporation_md_banner1.webp",
   },
   {
     name: "Automotive",
     desc: "Identify the Current Market Trends & Demands in the Automotive Market",
-    img: "https://eximtradedata.com/images/automative_md_banner1.webp",
+    img: "https://old-net.eximtradedata.com/images/automative_md_banner1.webp",
   },
   
   
@@ -75,7 +75,7 @@ export default function IndustrySlider() {
             >
               {/* Image */}
               <div className="w-full h-48 relative">
-                <Image
+                <img
                   src={`/solutions/${industry.name.toLowerCase().replace(/ /g, "-")}.webp`}
                   alt={industry.name}
                   layout="fill"
@@ -88,11 +88,11 @@ export default function IndustrySlider() {
                 <h3 className="text-lg font-semibold text-black">{industry.name}</h3>
                 <p className="text-sm text-black">{industry.desc}</p>
 
-                <Link href={`/${industry.name.toLowerCase()}`}>
+                <a href={`/${industry.name.toLowerCase()}`}>
                   <button className="mt-2 w-fit bg-[#0067b8] text-white text-sm px-4 py-2 shadow-md hover:bg-[#005fa3] transition-all">
                     Read More →
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           ))}

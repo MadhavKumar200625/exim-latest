@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export const Hero = ({ country, hero }) => {
+export default Hero = ({ country, hero }) => {
     return (
       <section className="w-full bg-white text-black pb-14 pt-28 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row text-justify  justify-between gap-10">
@@ -39,7 +39,7 @@ export const Hero = ({ country, hero }) => {
           {/* Image */}
           <div className="flex-[1] flex justify-center md:justify-end">
             <div className="w-full max-w-sm">
-              <Image
+              <img
                 src={`/homepage/${country}-import-export-data.webp`}
                 alt={`${country}-map`}
                 width={400}

@@ -45,7 +45,7 @@ Exim trade data is equipped with the latest business intelligence tools for data
         <div className="w-20 h-20 mx-auto mb-5">
     
 
-<Image
+<img
   src={`/about/${card.img}`}
   alt="Benefit icon"
   width={400}      // ← Set to actual image width if known

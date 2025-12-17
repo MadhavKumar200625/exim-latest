@@ -30,7 +30,7 @@ import Reputation from '../components/OurClients/Reputation'
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -43,7 +43,7 @@ import Reputation from '../components/OurClients/Reputation'
     site: "@eximtradedata",
     creator: "@eximtradedata",
     url: "https://eximtradedata.com/our-client",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   }
   
 };

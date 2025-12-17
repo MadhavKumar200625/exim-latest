@@ -14,7 +14,7 @@ export const metadata = {
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -26,7 +26,7 @@ export const metadata = {
       "World's largest global trade database. Connect with millions of international buyers and suppliers in one go",
     site: "@eximtradedata",
     creator: "@eximtradedata",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   },
 };
 

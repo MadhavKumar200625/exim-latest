@@ -35,7 +35,7 @@ import Hero from '../components/Contact/Hero'
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -48,7 +48,7 @@ import Hero from '../components/Contact/Hero'
     site: "@eximtradedata",
     creator: "@eximtradedata",
     url: "https://eximtradedata.com/contact",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   }
   
 };

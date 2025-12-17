@@ -55,7 +55,7 @@ const Questions = () => {
     {/* Placeholder image block */}
     <div className="mt-14">
       <img
-        src="https://eximtradedata.com/images/structure-of-hsn-code.png" // Change this path accordingly
+        src="https://old-net.eximtradedata.comimages/structure-of-hsn-code.png" // Change this path accordingly
         alt="HSN Code Explanation"
         className="mx-auto  max-w-full h-auto"
       />

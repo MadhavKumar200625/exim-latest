@@ -15,12 +15,12 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${formattedCompanyName} Trade Data`,
       url: fullUrl,
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
     twitter: {
       card: "summary",
       title: `${formattedCompanyName} Trade Data`,
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

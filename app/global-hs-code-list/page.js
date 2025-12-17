@@ -39,7 +39,7 @@ import FAQSection from '../components/FAQ';
       "siteName": "Exim Trade Data",
       "images": [
         {
-          "url": "https://eximtradedata.com/images/logo.png",
+          "url": "/logo.png",
           "alt": "Exim Trade Data Logo"
         }
       ]
@@ -51,7 +51,7 @@ import FAQSection from '../components/FAQ';
       "site": "@eximtradedata",
       "creator": "@eximtradedata",
       "url": "https://eximtradedata.com/global-hs-code-list",
-      "images": ["https://eximtradedata.com/images/logo.png"]
+      "images": ["/logo.png"]
     }
   };
   
@@ -301,16 +301,16 @@ const page = async () => {
                     } hover:bg-gray-100 transition`}
                   >
                     <td className="px-6 py-4 font-semibold border-b border-gray-200">
-                      <Link href={`global-hs-code-list/chapter-${row.hs_code}`} className="block w-full">chapter {row.hs_code}</Link>
+                      <a href={`global-hs-code-list/chapter-${row.hs_code}`} className="block w-full">chapter {row.hs_code}</a>
                     </td>
                     <td className="px-6 py-4 border-b border-gray-200 border-l">
-                      <Link href={`global-hs-code-list/chapter-${row.hs_code}`} className="block w-full">{row.HS_code_Description}</Link>
+                      <a href={`global-hs-code-list/chapter-${row.hs_code}`} className="block w-full">{row.HS_code_Description}</a>
                     </td>
                     <td className="px-4 py-4 border-b border-gray-200 border-l">
-                      <Link href={`/search/country-vietnam/type-import/hscode-${row.hs_code}`} className="block bg-blue-600 text-white p-2 text-x cursor-pointer underline text-center w-full">Chapter - {row.hs_code}</Link>
+                      <a href={`/search/country-vietnam/type-import/hscode-${row.hs_code}`} className="block bg-blue-600 text-white p-2 text-x cursor-pointer underline text-center w-full">Chapter - {row.hs_code}</a>
                     </td>
                     <td className="px-4 py-4 border-b border-gray-200 border-l">
-                      <Link href={`/search/country-vietnam/type-export/hscode-${row.hs_code}`} className="block text-center bg-gray-400 p-2 text-white underline cursor-pointer  w-full">Chapter - {row.hs_code}</Link>
+                      <a href={`/search/country-vietnam/type-export/hscode-${row.hs_code}`} className="block text-center bg-gray-400 p-2 text-white underline cursor-pointer  w-full">Chapter - {row.hs_code}</a>
                     </td>
                   </tr>
                 ))}

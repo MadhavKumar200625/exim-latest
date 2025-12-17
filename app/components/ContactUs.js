@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ChevronDown, Send } from "lucide-react";
 import { countries } from "@/app/data";
-import Image from "next/image";
 import axios from 'axios';
 
 
@@ -346,12 +345,12 @@ if (!/^\d{10,}$/.test(mobile)) {
                         setShowDropdown(false);
                       }}
                     >
-                     <Image
+                     <img
                                              src={flag}
                                              height={10}
                                              width={10}
                                              alt={country}
-                                           ></Image>
+                                           ></img>
                       <span>{country}</span>
                     </div>
                   ))}

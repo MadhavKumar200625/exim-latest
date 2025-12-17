@@ -132,7 +132,7 @@ export async function generateMetadata({ params }) {
     }
   }
 
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL || "https://eximtradedata.com"}/search/${raw.join("/")}`;
+  const url = `${"https://eximtradedata.com"}/search/${raw.join("/")}`;
 
   return {
     title,
@@ -145,7 +145,7 @@ export async function generateMetadata({ params }) {
       url,
       siteName: "Exim Trade Data",
       type: "website",
-      images: [{ url: "https://eximtradedata.com/images/logo.svg", alt: "Exim Trade Data" }],
+      images: [{ url: "/logo.png", alt: "Exim Trade Data" }],
     },
     twitter: {
       card: "summary",
@@ -153,7 +153,7 @@ export async function generateMetadata({ params }) {
       description,
       site: "@eximtradedata",
       creator: "@eximtradedata",
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

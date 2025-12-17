@@ -103,12 +103,12 @@ const Products = ({
               ))}
             </select>
             {/* Search Button */}
-            <Link
+            <a
               href={buildUrl(1)}
               className="bg-blue-600 text-white px-4 py-2 shadow hover:scale-105 transition-transform text-center"
             >
               Search
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -122,9 +122,9 @@ const Products = ({
                  cursor-pointer group"
     >
       <p className="text-gray-800 font-medium group-hover:text-blue-600 transition-colors">
-      <Link href={`/search/country-${country.replace(/\s+/g, "_").toLowerCase()}/type-${tradeType.toLowerCase()}/product-${item.product.replace(/\s+/g, "-").toLowerCase()}`}>
+      <a href={`/search/country-${country.replace(/\s+/g, "_").toLowerCase()}/type-${tradeType.toLowerCase()}/product-${item.product.replace(/\s+/g, "-").toLowerCase()}`}>
         {item.product}
-        </Link>
+        </a>
       </p>
     </div>
   ))}
@@ -133,16 +133,16 @@ const Products = ({
         {/* Pagination */}
         <div className="flex justify-center items-center gap-2 mb-10">
   {currentPage > 1 && (
-    <Link href={buildUrl(currentPage - 1)} className="px-3 py-1 text-blue-600 border border-blue-600">
+    <a href={buildUrl(currentPage - 1)} className="px-3 py-1 text-blue-600 border border-blue-600">
       &lt;&lt;
-    </Link>
+    </a>
   )}
 
   {pageNumbers.map((page, idx) => 
     page === "..." ? (
       <span key={idx} className="pt-2 text-blue-600 text-3xl">...</span>
     ) : (
-      <Link
+      <a
         key={idx}
         href={buildUrl(page).toLowerCase()}
         className={`px-3 py-1 border ${
@@ -152,14 +152,14 @@ const Products = ({
         }`}
       >
         {page}
-      </Link>
+      </a>
     )
   )}
 
   {currentPage < totalPages && (
-    <Link href={buildUrl(currentPage + 1)} className="px-3 py-1 text-blue-600 border border-blue-600">
+    <a href={buildUrl(currentPage + 1)} className="px-3 py-1 text-blue-600 border border-blue-600">
       &gt;&gt;
-    </Link>
+    </a>
   )}
 </div>
 
@@ -168,13 +168,13 @@ const Products = ({
           <h3 className="text-xl font-bold text-black mb-4">Browse by Products</h3>
           <div className="flex flex-wrap gap-2">
             {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((char) => (
-              <Link
+              <a
                 key={char}
                 href={buildUrl(1).replace(/product-[A-Z]/, `product-${char.toLowerCase()}`)}
                 className="px-3 py-1 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition"
               >
                 {char}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -184,13 +184,13 @@ const Products = ({
           <h3 className="text-xl font-bold text-black mb-4">Browse by Country</h3>
           <div className="flex gap-6 grid-cols-3  ">
             {Object.entries(countryFlags).map(([countryName, flagUrl], idx) => (
-  <Link
+  <a
     key={idx}
     href={`/global-products/product-${letter.toUpperCase()}/country-${countryName.toLowerCase()}/type-${tradeType.toLowerCase()}/pg-${currentPage}`}
     className="flex items-center justify-center border border-gray-100 shadow-lg p-0"
   >
     <img alt={countryName} src={flagUrl} className="w-24 p-2" />
-  </Link>
+  </a>
 ))}
           </div>
         </div>

@@ -25,7 +25,7 @@ const Hero = ({ title, description, image }) => {
 
         {/* Right Image */}
         <div className="flex justify-center md:justify-end">
-          <Image
+          <img
             src={`/solutions/${image.toLowerCase().replace(/ /g,"").replace("automative","automotive").replace("&","and") }.webp`}
             alt="Hero image"
             width={500}

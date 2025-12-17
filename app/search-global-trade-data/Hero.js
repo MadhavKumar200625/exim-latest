@@ -46,12 +46,12 @@ const Hero = () => {
             reports of world trade data by country.
           </p>
 
-          <Link
+          <a
             href="/pricing"
             className="inline-block bg-blue-600 text-white text-lg px-6 py-3 font-medium shadow hover:scale-105 transition-transform"
           >
             Schedule Demo
-          </Link>
+          </a>
         </div>
       </div>
     </section>

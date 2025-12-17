@@ -34,7 +34,7 @@ export const metadata = {
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -47,7 +47,7 @@ export const metadata = {
     site: "@eximtradedata",
     creator: "@eximtradedata",
     url: "https://eximtradedata.com/pricing",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   }
   
 };

@@ -8,7 +8,7 @@ const CustomizedData = () => {
         {/* Left Image */}
         <div className="flex justify-center">
           <img
-            src="https://eximtradedata.com/images/custom-dashboard.png"
+            src="https://old-net.eximtradedata.com/images/custom-dashboard.png"
             alt="Customized Data"
             className="w-full  rounded-lg shadow-lg"
           />

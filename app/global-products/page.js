@@ -30,7 +30,7 @@ const metadata = {
     siteName: 'Exim Trade Data',
     images: [
       {
-        url: 'https://eximtradedata.com/images/logo.png',
+        url: '/logo.png',
         alt: 'Exim Trade Data Logo',
 
       },
@@ -44,7 +44,7 @@ const metadata = {
     site: '@eximtradedata',
     creator: '@eximtradedata',
     url: 'https://eximtradedata.com/global-products',
-    images: ['https://eximtradedata.com/images/logo.png'],
+    images: ['/logo.png'],
   },
 };
 

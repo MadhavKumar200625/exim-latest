@@ -49,7 +49,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.svg", // Replace with the actual OG image if different
+        url: "/logo.png", // Replace with the actual OG image if different
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -60,7 +60,7 @@ export const metadata = {
     description: "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
     site: "@eximtradedata",  // Replace with the actual Twitter handle if available
     creator: "@eximtradedata", // Replace with the actual Twitter handle if available
-    images: ["https://eximtradedata.com/images/logo.svg"], // Same as OpenGraph image
+    images: ["/logo.png"], // Same as OpenGraph image
   },
   other: {
     "google-site-verification": "VSKuLBADMQzDxe8NHGirJ-TQgOMuWnw3ywzkGbQ-plQ",
@@ -72,50 +72,51 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
-      <head>
-        {/* Google Tag Manager */}
-        <Script
-          id="google-tag-manager"
-          strategy="afterInteractive"
-        >{`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-W3SCBS3C');
-        `}</Script>
-      </head>
-            <body className="font-sans">
-{/* Google Tag Manager (noscript) */}
-<noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W3SCBS3C"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
-              {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-WC3TFBQ989"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-WC3TFBQ989');
-          `}
-        </Script>
+  <head>
+    <Script id="gtm-init" strategy="afterInteractive">
+      {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-W3SCBS3C');
+      `}
+    </Script>
+  </head>
 
+  <body className="font-sans">
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-W3SCBS3C"
+              height="0"
+              width="0"
+              style="display:none;visibility:hidden"
+            ></iframe>
+          </noscript>
+        `,
+      }}
+    />
 
-                    <Header></Header>
+    <Script
+      src="https://www.googletagmanager.com/gtag/js?id=G-WC3TFBQ989"
+      strategy="afterInteractive"
+    />
+    <Script id="google-analytics" strategy="afterInteractive">
+      {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-WC3TFBQ989');
+      `}
+    </Script>
 
-              {children}
-              <Footer></Footer>
-              </body>
-
-    </html>
+    <Header />
+    {children}
+    <Footer />
+  </body>
+</html>
   );
 }

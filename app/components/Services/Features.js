@@ -36,7 +36,7 @@ export default function FeaturesSection() {
         <div className="flex flex-col lg:flex-row items-stretch gap-12">
           {/* Image */}
           <div className="relative w-full lg:w-1/2">
-            <Image
+            <img
               src="/services/features-of-import-export-data.webp"
               alt="Features Image"
               fill

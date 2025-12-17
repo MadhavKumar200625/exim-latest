@@ -6,17 +6,17 @@ const points = [
   {
     title: "Emerging Markets",
     desc: "Explore the emerging markets through our interactive platform. Get accurate forecasts on top market trends, demands, risks, competitors and growth opportunities.",
-    image: "https://eximtradedata.com/images/emerging_markets.jpg",
+    image: "https://old-net.eximtradedata.com/images/emerging_markets.jpg",
   },
   {
     title: "Trending Products",
     desc: "Through our impressive visual reports, you can discover top product trends, analyze production quantity and evaluate appropriate pricing for your product.",
-    image: "https://eximtradedata.com/images/trending_product_landing.jpg",
+    image: "https://old-net.eximtradedata.com/images/trending_product_landing.jpg",
   },
   {
     title: "Global Buyers & Suppliers",
     desc: "Expand your network to the global market through our Global buyers & suppliers list. Get quality business leads from Exim GTIS & double your revenue.",
-    image: "https://eximtradedata.com/images/global_buyer_supplier.jpg",
+    image: "https://old-net.eximtradedata.com/images/global_buyer_supplier.jpg",
   },
 ];
 

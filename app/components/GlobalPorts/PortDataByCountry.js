@@ -18,7 +18,7 @@ const PortDataByCountry = () => {
               <div className="flex items-center mb-4">
             
 
-<Image
+<img
   src={`https://flagcdn.com/w40/${countryFlags[country.name.toLowerCase().replace(/^\w/, c => c.toUpperCase())]}.png`}
   alt={`${country.name} Flag`}
           height="100"
@@ -26,33 +26,33 @@ const PortDataByCountry = () => {
   className="mr-3 object-cover"
 />
 
-<Link
+<a
                   href={`/ports-data/${country.name.toLowerCase()}/a-1`}
                   className="text-xl font-semibold text-black hover:text-blue-600 transition"
                 >
                   {country.name}
-                </Link>
+                </a>
               </div>
               <ul className="text-sm text-black space-y-1">
   {country.ports.map((port) => (
     <li key={port}>
-      <Link
+      <a
               href={`global-ports/${country.name.toLowerCase()}/${port
                 .toLowerCase()
                 .replace(/[^a-z0-9]/g, "-")}`}>
         {port}
         <span className="text-xs">↗</span>
-      </Link>
+      </a>
     </li>
   ))}
 </ul>
               <div className="mt-4 text-right">
-                <Link
+                <a
                   href={`/ports-data/${country.name.toLowerCase()}/a-1`}
                   className="text-sm py-2 px-3 text-white bg-blue-600 hover:underline font-medium"
                 >
                   View all →
-                </Link>
+                </a>
               </div>
             </div>
           ))}

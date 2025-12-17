@@ -416,12 +416,12 @@ const ContactInfo = () => {
                         setShowDropdown(false);
                       }}
                     >
-                      <Image
+                      <img
                         src={flag}
                         height={10}
                         width={10}
                         alt={country}
-                      ></Image>
+                      ></img>
                       <span>{country}</span>
                     </div>
                   ))}

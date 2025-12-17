@@ -112,7 +112,7 @@ export default function SearchComponent({ heading , subHeading }) {
                           setShowDropdown(false);
                         }}
                       >
-                        <Image
+                        <img
                           width={20}
                           height={20}
                           src={flag}

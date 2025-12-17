@@ -8,7 +8,7 @@ const Hero = ({countryName}) => {
         
         <div className="w-full">
           <img
-            src="https://eximtradedata.com/images/global_ports.webp"
+            src="https://old-net.eximtradedata.com/images/global_ports.webp"
             alt="Global Ports Data"
             className="w-full h-auto shadow-lg"
           />

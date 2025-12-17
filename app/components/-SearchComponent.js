@@ -110,13 +110,13 @@ const router = useRouter();
                           setShowDropdown(false);
                         }}
                       >
-                        <Image
+                        <img
                           width={20}
                           height={20}
                           src={flag}
                           className="text-xl"
                           alt={flag}
-                        ></Image>
+                        ></img>
                         <span className="text-sm font-medium">{country}</span>
                       </div>
                     ))

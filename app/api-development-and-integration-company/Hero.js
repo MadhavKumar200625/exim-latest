@@ -28,8 +28,8 @@ const Hero = () => {
 
         <div className="p-10">
 <div className="w-">
-<Image
-  src="/api/best-api-development-services.webp"
+<img
+  src="/api-page/best-api-development-services.webp"
   alt="Best API development services"
   width={800} // ← Replace with actual width if known
   height={600} // ← Replace with actual height if known

@@ -40,7 +40,7 @@ import ContactUs from '../components/ContactUs'
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -53,7 +53,7 @@ import ContactUs from '../components/ContactUs'
     site: "@eximtradedata",
     creator: "@eximtradedata",
     url: "https://eximtradedata.com/about",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   }
   
 };

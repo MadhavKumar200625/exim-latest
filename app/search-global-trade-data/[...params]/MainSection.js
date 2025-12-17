@@ -53,12 +53,12 @@ const MainSection = ({ data, appliedFilters }) => {
 
             {filters.hsCodes.map((code, i) => (
               <li key={i}>
-                <Link
+                <a
                   href={getFilterHref("hscode", code)}
                   className="block px-2 py-1 rounded-lg text-sm font-medium text-white"
                 >
                   {code}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -74,12 +74,12 @@ const MainSection = ({ data, appliedFilters }) => {
 
             {filters.countries.map((country, i) => (
               <li key={i}>
-                <Link
+                <a
                   href={getFilterHref("countryin", country)}
                   className="block px-2 py-1 rounded-lg text-sm font-medium text-white"
                 >
                   {country}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -94,12 +94,12 @@ const MainSection = ({ data, appliedFilters }) => {
 <ul className="list-disc list-outside space-y-2 px-4 marker:text-white">
               {filters.ports.map((port, i) => (
               <li key={i}>
-                <Link
+                <a
                   href={getFilterHref("port", port)}
                   className="block px-2 py-1 rounded-lg text-sm font-medium text-white"
                 >
                   {port}
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
@@ -173,23 +173,23 @@ const MainSection = ({ data, appliedFilters }) => {
                 {page}
               </span>
             ) : (
-              <Link
+              <a
                 key={page}
                 href="/pricing"
                 className="px-4 py-2 bg-gray-100 text-black text-sm rounded-lg hover:bg-gray-200 transition"
               >
                 {page}
-              </Link>
+              </a>
             );
           })}
 
           {table.pagination.currentPage < table.pagination.totalPages && (
-            <Link
+            <a
               href={table.pagination.nextPageUrl}
               className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 transition"
             >
               Next Page →
-            </Link>
+            </a>
           )}
         </div>
       </div>

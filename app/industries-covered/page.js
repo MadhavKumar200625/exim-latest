@@ -26,7 +26,7 @@ import ContactQuestion from './ContactQuestion'
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -39,7 +39,7 @@ import ContactQuestion from './ContactQuestion'
     site: "@eximtradedata",
     creator: "@eximtradedata",
     url: "https://eximtradedata.com/industries-covered",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   }
   
 };

@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
       siteName: "Exim Trade Data",
       images: [
         {
-          url: industry.openGraph?.image || "https://eximtradedata.com/images/logo.png",
+          url: industry.openGraph?.image || "/logo.png",
           alt: industry.openGraph?.imageAlt || "Exim Trade Data Logo",
         },
       ],
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }) {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: industry.twitter?.url || `https://eximtradedata.com/industries/${slug}`,
-      images: [industry.twitter?.image || "https://eximtradedata.com/images/logo.png"],
+      images: [industry.twitter?.image || "/logo.png"],
     }
   };
 }

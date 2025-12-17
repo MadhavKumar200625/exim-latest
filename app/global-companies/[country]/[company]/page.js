@@ -26,13 +26,13 @@ export async function generateMetadata(context) {
       title: `${formattedCompanyName} - Import Export Trade Data`,
       description: `Discover key import export data for ${formattedCompanyName}.`,
       url: fullUrl,
-      images: [{ url: "https://eximtradedata.com/images/logo.svg" }],
+      images: [{ url: "/logo.png" }],
     },
     twitter: {
       card: "summary",
       title: `${formattedCompanyName} - Import Export Data`,
       description: `Discover key import export data for ${formattedCompanyName}.`,
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

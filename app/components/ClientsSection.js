@@ -3,12 +3,12 @@ import React from 'react';
 import Image from 'next/image';
 
 const logos = [
-  'https://eximtrade-new.vercel.app/images/clients/lonza.png',
-  'https://eximtrade-new.vercel.app/images/clients/duracell.png',
-  'https://eximtrade-new.vercel.app/images/clients/absolute-advantage_logo.png',
-  'https://eximtrade-new.vercel.app/images/clients/bcg.png',
-  'https://eximtrade-new.vercel.app/images/clients/afepasa.png',
-  'https://eximtrade-new.vercel.app/images/clients/neohealth.png',
+  '/our-clients/lonza.webp',
+  '/our-clients/duracell.webp',
+  '/our-clients/absolute-advantage_logo.png',
+  '/our-clients/bcg.png',
+  '/our-clients/afepasa.png',
+  '/our-clients/neohealth.png',
 ];
 
 const ClientsSection = () => {
@@ -39,7 +39,7 @@ const ClientsSection = () => {
             {[...logos, ...logos].map((src, i) => (
          
 
-           <Image
+           <img
              key={i}
              src={src}
              alt={`logo-${i}`}

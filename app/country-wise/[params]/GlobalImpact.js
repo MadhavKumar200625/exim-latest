@@ -22,7 +22,7 @@ const GlobalImpact = ({ country, points }) => {
         {/* Left Image */}
         <div className="flex justify-center">
           <div className="relative w-full h-96"> 
-            <Image
+            <img
               src="/countries/common-dashboard.webp"
               alt="Global Trade Intelligence"
               fill

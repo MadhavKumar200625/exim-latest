@@ -18,14 +18,14 @@ export async function generateMetadata() {
       description:
         "Explore Exim Trade Data's Global Companies List to find top importers and exporters across 200+ countries.",
       url: "https://eximtradedata.com/global-companies-list",
-      images: [{ url: "https://eximtradedata.com/images/logo.svg" }],
+      images: [{ url: "/logo.png" }],
     },
     twitter: {
       card: "summary",
       title: "Global Companies List | Top Global Importers & Exporters – Exim Trade Data",
       description:
         "Explore Exim Trade Data's Global Companies List to find top importers and exporters across 200+ countries.",
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

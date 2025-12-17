@@ -80,7 +80,7 @@ export default function Reputation() {
             key={i}
             className="bg-white shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300"
           >
-            <Image
+            <img
               src={src}
               alt={`Client ${i + 1}`}
               width={200}

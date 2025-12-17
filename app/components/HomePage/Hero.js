@@ -34,7 +34,7 @@ International import export trade data provides essential insights into who is t
         </div>
 
         <div className="flex-1">
-          <Image
+          <img
               src="/homepage/home.webp"
             alt="Enterprise Planning"
             width={600}

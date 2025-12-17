@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import React from 'react'
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const points = [
   {
@@ -58,8 +57,8 @@ const HowToGetStarted = () => {
                 <div>  </div>
               
 
-<Image
-  src={`/api/${point.title.toLowerCase().replace(/ /g, "-")}.webp`}
+<img
+  src={`/api-page/${point.title.toLowerCase().replace(/ /g, "-")}.webp`}
   alt={point.title || "Image"} // Use meaningful alt text
   width={300}                  // Set actual width
   height={224}                 // Set actual height (h-56 = 14rem = 224px)

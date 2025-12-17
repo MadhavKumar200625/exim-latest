@@ -138,7 +138,7 @@ export const countriesData={
     "description": "Get verified Nicaragua Import Data, Nicaragua customs data and Nicaragua shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -149,7 +149,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-nicaragua-import-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
   },
@@ -233,7 +233,7 @@ export const countriesData={
       "description": "Get verified USA Import Data, USA customs data and USA shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
       "siteName": "Exim Trade Data",
       "images": [
-        "https://eximtradedata.com/images/logo.png"
+        "/logo.png"
       ]
     },
     "twitter": {
@@ -244,7 +244,7 @@ export const countriesData={
       "creator": "@eximtradedata",
       "url": "https://eximtradedata.com/country-wise-usa-import-data",
       "images": [
-        "https://eximtradedata.com/images/logo.png"
+        "/logo.png"
       ]
     }
   },
@@ -328,7 +328,7 @@ export const countriesData={
         "description": "Get verified Cameroon Import Data, Cameroon customs data and Cameroon shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
         "siteName": "Exim Trade Data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       },
       "twitter": {
@@ -339,7 +339,7 @@ export const countriesData={
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/country-wise-cameroon-import-data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       }
     },
@@ -423,7 +423,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
         "description": "Get verified Sri Lanka Import Data, Sri Lanka customs data and Sri Lanka shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
         "siteName": "Exim Trade Data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       },
       "twitter": {
@@ -434,7 +434,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/country-wise-sri-lanka-import-data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       }
     },
@@ -516,7 +516,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
     "description": "Get verified Ghana Import Data, Ghana customs data and Ghana shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -527,7 +527,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-ghana-import-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
       
@@ -615,7 +615,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
         "description": "Get verified Turkey Import Data, Turkey customs data and Turkey shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
         "siteName": "Exim Trade Data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       },
       "twitter": {
@@ -626,7 +626,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
         "creator": "@eximtradedata",
         "url": "https://eximtradedata.com/country-wise-turkey-import-data",
         "images": [
-          "https://eximtradedata.com/images/logo.png"
+          "/logo.png"
         ]
       }
   },
@@ -713,7 +713,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
       "description": "Get verified Tanzania Import Data, Tanzania customs data and Tanzania shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
       "siteName": "Exim Trade Data",
       "images": [
-        "https://eximtradedata.com/images/logo.png"
+        "/logo.png"
       ]
     },
     "twitter": {
@@ -724,7 +724,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
       "creator": "@eximtradedata",
       "url": "https://eximtradedata.com/country-wise-tanzania-import-data",
       "images": [
-        "https://eximtradedata.com/images/logo.png"
+        "/logo.png"
       ]
     }
   },
@@ -807,7 +807,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
     "description": "Get verified Kenya Import Data, Kenya customs data and Kenya shipment data including importers, exporters, trade patterns, HS codes and port information at Exim Trade Data.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -818,7 +818,7 @@ Sri Lanka’s primary imports include Electrical Equipment, Machinery, Vehicles,
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-kenya-import-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
   },

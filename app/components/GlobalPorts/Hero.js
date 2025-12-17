@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="w-full">
        
 
-<Image
+<img
   src="/global-ports/global-ports-data.webp"
   alt="Global Ports Data"
     width="100"

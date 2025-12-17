@@ -29,12 +29,12 @@ const ShowFilters = ({ appliedFilters }) => {
               </span>
 
               {/* Link instead of button */}
-              <Link
+              <a
                 href={`/${newUrl}`}
                 className="hover:bg-blue-100 rounded-full p-1 transition"
               >
                 <X className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           );
           }

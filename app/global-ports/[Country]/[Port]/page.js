@@ -29,11 +29,11 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url: `${baseURL}/global-ports/${country}/${port}`,
-      images: [{ url: "https://eximtradedata.com/images/logo.svg" }],
+      images: [{ url: "/logo.png" }],
     },
     twitter: {
       card: "summary",
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

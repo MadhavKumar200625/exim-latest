@@ -25,8 +25,8 @@ const TabsSection = ({ heading, points }) => {
                     : 'bg-white text-black border-gray-300 hover:bg-gray-50'
                 }`}
               >
-                {point.icon && (
-                  <Image
+                {point.icon && point.icon!=""(
+                  <img
                     src={point.icon}
                     alt={point.heading}
                     width={32}
@@ -47,8 +47,8 @@ const TabsSection = ({ heading, points }) => {
 
   <div className="relative z-10">
     <div className="flex items-start mb-6">
-      {points[activeIndex].icon && (
-        <Image
+      {points[activeIndex].icon && points[activeIndex].icon != ""(
+        <img
           src={points[activeIndex].icon}
           alt={points[activeIndex].heading}
           width={48}

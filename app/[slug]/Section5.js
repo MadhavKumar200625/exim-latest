@@ -18,7 +18,7 @@ const Section5 = ({ industries }) => {
             >
               {/* Image Container */}
               <div className="relative w-full sm:w-40 md:w-48 lg:w-60 aspect-[4/3] border border-gray-200 bg-gray-50 flex-shrink-0">
-                <Image
+                <img
                   src={`/solutions/${industry.title.toLowerCase().replace(/ /g, "-").replace("&","and")}.webp`}
                   alt={industry.title}
                   fill
@@ -37,12 +37,12 @@ const Section5 = ({ industries }) => {
                 <p className="text-black text-sm mt-2 line-clamp-3 leading-relaxed">
                   {industry.description}
                 </p>
-                <Link
+                <a
                   href={industry.link || "/industries-covered"}
                   className="mt-3 inline-block text-sm font-medium text-blue-600 transition"
                 >
                   Learn more →
-                </Link>
+                </a>
               </div>
             </div>
           ))}

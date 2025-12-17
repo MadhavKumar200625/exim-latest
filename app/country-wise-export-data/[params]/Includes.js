@@ -56,7 +56,7 @@ const Includes = ({ country, desc1, desc2 }) => {
               className="flex flex-col items-center p-4 bg-gradient-to-tr from-gray-100 to-gray-50 rounded-xl shadow hover:shadow-lg transition"
             >
               <div className="w-full h-40 relative mb-4 overflow-hidden">
-                <Image
+                <img
                   src={`/countries/${item.text
                     .replace(/ /g, "-")
                     .toLowerCase()

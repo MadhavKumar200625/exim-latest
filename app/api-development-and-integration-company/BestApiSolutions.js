@@ -86,8 +86,8 @@ const BestApiSolutions = () => {
                   className="bg-white  shadow-xl border border-zinc-200 p-6 hover:shadow-2xl transition duration-300"
                 >
                   <div className="h-34 w-[55%] mx-auto relative   overflow-hidden">
-                    <Image
-                      src={`/api/${benefit.title.toLowerCase().replace(/ /g,"-").replace("&","and")}.webp`}
+                    <img
+                      src={`/api-page/${benefit.title.toLowerCase().replace(/ /g,"-").replace("&","and")}.webp`}
                       alt={benefit.title}
                       fill
                       className="flex justify-center items-center"

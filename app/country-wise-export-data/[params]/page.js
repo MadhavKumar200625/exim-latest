@@ -61,7 +61,7 @@ export async function generateMetadata({ params }) {
         {
           url:
             country?.openGraph?.image ||
-            "https://eximtradedata.com/images/logo.png",
+            "/logo.png",
           alt: "Exim Trade Data Logo",
         },
       ],
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }) {
         `https://eximtradedata.com/country-wise-${slug}-export-data`,
       images: [
         country?.twitter?.image ||
-          "https://eximtradedata.com/images/logo.png",
+          "/logo.png",
       ],
     },
   };

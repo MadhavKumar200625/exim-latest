@@ -115,7 +115,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/agribusiness",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   automative: {
@@ -227,7 +227,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/automative",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   energy: {
@@ -347,7 +347,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/energy",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "research-and-consulting": {
@@ -465,7 +465,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/research-and-consulting",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "insurance-companies": {
@@ -576,7 +576,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/insurance-companies",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   finance: {
@@ -694,7 +694,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/finance",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   corporation: {
@@ -805,7 +805,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/corporation",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "academic-and-education": {
@@ -917,7 +917,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/academic-and-education",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "asset-management": {
@@ -1033,7 +1033,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/asset-management",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "government-agencies": {
@@ -1145,7 +1145,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/government-agencies",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "law-firms": {
@@ -1256,7 +1256,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/law-firms",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   construction: {
@@ -1373,7 +1373,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/construction",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   chemical: {
@@ -1484,7 +1484,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/chemical",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "aerospace-and-defence": {
@@ -1596,7 +1596,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/aerospace-and-defence",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   importers: {
@@ -1735,7 +1735,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/importers",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   exporters: {
@@ -1874,7 +1874,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/exporters",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "supply-chain-and-logistics": {
@@ -1991,7 +1991,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/supply-chain-and-logistics",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "it-and-consulting": {
@@ -2109,7 +2109,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/it-and-consulting",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   retail: {
@@ -2220,7 +2220,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/retail",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
   "sales-and-marketing": {
@@ -2338,7 +2338,7 @@ export const industries = {
       site: "@eximtradedata",
       creator: "@eximtradedata",
       url: "https://eximtradedata.com/sales-and-marketing",
-      images: ["https://eximtradedata.com/images/logo.png"],
+      images: ["/logo.png"],
     }
   },
 };

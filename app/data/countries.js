@@ -288,7 +288,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/nicaragua-import-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }}
 	  ,
@@ -452,7 +452,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/usa-import-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
 	
@@ -615,7 +615,7 @@ export const countriesData={
 			"creator": "@eximtradedata",
 			"url": "https://eximtradedata.com/cameroon-import-export-data",
 			"images": [
-			  "https://eximtradedata.com/images/logo.png"
+			  "/logo.png"
 			]
 		  }
 		 },
@@ -779,7 +779,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/sri-lanka-import-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
 			  },
@@ -938,7 +938,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/ghana-import-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
 			  },
@@ -1100,7 +1100,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/turkey-import-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
 			  },
@@ -1126,7 +1126,7 @@ export const countriesData={
     "description": "Access up-to-date Turkey Import Export Data, Turkey customs data and Turkey shipment data to analyse trade by HS codes, countries, suppliers and ports at Exim Trade Data.",
     "siteName": "Exim Trade Data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
   "twitter": {
@@ -1137,7 +1137,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/country-wise-turkey-import-and-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   },
 			},
@@ -1304,7 +1304,7 @@ export const countriesData={
     "creator": "@eximtradedata",
     "url": "https://eximtradedata.com/tanzania-import-export-data",
     "images": [
-      "https://eximtradedata.com/images/logo.png"
+      "/logo.png"
     ]
   }
 			  
@@ -1469,7 +1469,7 @@ export const countriesData={
 				"creator": "@eximtradedata",
 				"url": "https://eximtradedata.com/kenya-import-export-data",
 				"images": [
-				  "https://eximtradedata.com/images/logo.png"
+				  "/logo.png"
 				]
 			  }
 			

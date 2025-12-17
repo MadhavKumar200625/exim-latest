@@ -43,8 +43,8 @@ const Suppliers = ({country,data}) => {
         {/* Right Column (Image) */}
         <div className="flex justify-center lg:justify-end">
           <div className="w-full max-w-xs sm:max-w-sm">
-            <Image
-              src="https://eximtradedata.com/images/port-card.webp"
+            <img
+              src="https://old-net.eximtradedata.com/images/port-card.webp"
               alt="Exporters"
               width={500}
               height={600}

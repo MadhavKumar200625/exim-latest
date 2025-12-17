@@ -54,7 +54,7 @@ export default function BenefitsSection() {
           {benefits.map((benefit, idx) => (
             <div key={idx} className="bg-white shadow-md  border hover:shadow-lg transition duration-300 p-4 flex flex-col h-full">
               <div className="w-full h-40 relative mb-4  overflow-hidden">
-                <Image
+                <img
                   src={"/services/"+benefit.title.toLowerCase().replace(/ /g, "-")+".webp"}
                   alt={benefit.title}
                   fill

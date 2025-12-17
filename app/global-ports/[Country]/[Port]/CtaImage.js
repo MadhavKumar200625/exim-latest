@@ -12,7 +12,7 @@ const CtaImage = ({ portName }) => {
         className="absolute inset-0 bg-cover bg-center opacity-30"
         style={{
           backgroundImage:
-            "url('https://eximtradedata.com/images/port_shipmet_data.png')",
+            "url('https://old-net.eximtradedata.com/images/port_shipmet_data.png')",
         }}
       ></div>
 

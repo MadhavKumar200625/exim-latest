@@ -51,8 +51,8 @@ const Advantages = () => {
     >
       {/* Icon placeholder */}
         <div className="h-30 w-[45%] mx-auto relative   overflow-hidden">
-        <Image
-            src={`/api/${title.toLowerCase().replace(/ /g,"-").replace("&","and")}.webp`}
+        <img
+            src={`/api-page/${title.toLowerCase().replace(/ /g,"-").replace("&","and")}.webp`}
             fill
           className=" "
           alt= " "

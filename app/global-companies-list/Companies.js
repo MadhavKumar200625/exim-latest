@@ -212,12 +212,12 @@ const Companies = ({
                           setShowDropdown(false);
                         }}
                       >
-                        <Image
+                        <img
                           src={flag}
                           height={10}
                           width={10}
                           alt={country}
-                        ></Image>
+                        ></img>
                         <span>{country}</span>
                       </div>
                     ))}
@@ -228,12 +228,12 @@ const Companies = ({
             {/* Type Select */}
 
             {/* Search Button */}
-            <Link
+            <a
               href={buildUrl(1)}
               className="bg-blue-600 text-white px-4 py-2 shadow hover:scale-105 transition-transform text-center"
             >
               Search
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -247,8 +247,8 @@ const Companies = ({
                  cursor-pointer group"
             >
               <p className="text-gray-800 font-medium group-hover:text-blue-600 transition-colors">
-               <Link
-               href={`/global-companies/${country.replace(/\s+/g, "-").toLowerCase()}/${item.Name.trim().replace(/\s+/g, "-").toLowerCase()}`}> {item.Name}</Link>
+               <a
+               href={`/global-companies/${country.replace(/\s+/g, "-").toLowerCase()}/${item.Name.trim().replace(/\s+/g, "-").toLowerCase()}`}> {item.Name}</a>
               </p>
             </div>
           ))}
@@ -257,12 +257,12 @@ const Companies = ({
         {/* Pagination */}
         <div className="flex justify-center items-center gap-2 mb-10">
           {currentPage > 1 && (
-            <Link
+            <a
               href={buildUrl(currentPage - 1)}
               className="px-3 py-1 text-blue-600 border border-blue-600"
             >
               &lt;&lt;
-            </Link>
+            </a>
           )}
 
           {pageNumbers.map((page, idx) =>
@@ -271,7 +271,7 @@ const Companies = ({
                 ...
               </span>
             ) : (
-              <Link
+              <a
                 key={idx}
                 href={buildUrl(page)}
                 className={`px-3 py-1 border ${
@@ -281,17 +281,17 @@ const Companies = ({
                 }`}
               >
                 {page}
-              </Link>
+              </a>
             )
           )}
 
           {currentPage < totalPages && (
-            <Link
+            <a
               href={buildUrl(currentPage + 1)}
               className="px-3 py-1 text-blue-600 border border-blue-600"
             >
               &gt;&gt;
-            </Link>
+            </a>
           )}
         </div>
 
@@ -302,13 +302,13 @@ const Companies = ({
           </h3>
           <div className="flex flex-wrap gap-2">
             {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((char) => (
-              <Link
+              <a
                 key={char}
                 href={`/global-companies-list/${country.replace(" ","_").toLowerCase()}/${char.toLowerCase()}-${currentPage}`}
                 className="px-3 py-1 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition"
               >
                 {char}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -320,13 +320,13 @@ const Companies = ({
           </h3>
           <div className="flex gap-6 grid-cols-3  ">
             {Object.entries(countryFlags).map(([countryName, flagUrl], idx) => (
-  <Link
+  <a
     key={idx}
     href={`/global-companies-list/${countryName.toLowerCase()}/${letter.toLowerCase()}-${currentPage}`}
     className="flex items-center justify-center border border-gray-100 shadow-lg p-0"
   >
     <img alt={countryName} src={flagUrl} className="w-24 p-2" />
-  </Link>
+  </a>
 ))}
           </div>
         </div>

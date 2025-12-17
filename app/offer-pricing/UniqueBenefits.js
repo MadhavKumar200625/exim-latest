@@ -6,22 +6,22 @@ const benefits = [
   {
     title: "Visual Reports",
     desc: "Find the spot on visual reports for comprehensive market research. Discover top 10 HS codes, month wise, country wise, Importer Exporter wise shipment records. Utilize this information for crucial business decisions.",
-    image: "https://eximtradedata.com/images/visual_reports.svg",
+    image: "https://old-net.eximtradedata.com/images/visual_reports.svg",
   },
   {
     title: "Product Trends",
     desc: "Stay ahead of your competition with the latest market trends. Discover the latest product trends by HS Code, Chapter, Heading, Subheading, Destination Country, Exporter, Exporter District & State, Mode of Transport, and Port of Discharge/Loading etc.",
-    image: "https://eximtradedata.com/images/product_trends.svg",
+    image: "https://old-net.eximtradedata.com/images/product_trends.svg",
   },
   {
     title: "Advance Search",
     desc: "Keeping the user convenience in mind, we have advance search option that help you to sort the information as per your requirement. You can select country, data type, data duration, & product. Also, you can download your search query results in excel/pdf format.",
-    image: "https://eximtradedata.com/images/advance_search.svg",
+    image: "https://old-net.eximtradedata.com/images/advance_search.svg",
   },
   {
     title: "Importer Exporter Tree",
     desc: "Find product sourcing, new buyers and suppliers through our Importer Exporter Tree. It helps you identify the 3 levels of the network of Importers and Exporters. That helps you gain quality business leads and expand your market at the international level.",
-    image: "https://eximtradedata.com/images/import_export_tree.svg",
+    image: "https://old-net.eximtradedata.com/images/import_export_tree.svg",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function EximBenefitsSection() {
               className="bg-white  shadow-xl border border-zinc-200 p-6 hover:shadow-2xl transition duration-300"
             >
               <div className="w-24 h-24 mx-auto mb-4">
-                <Image
+                <img
                   src={benefit.image}
                   alt={benefit.title}
                   width={32}

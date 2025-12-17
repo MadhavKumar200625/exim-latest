@@ -44,11 +44,11 @@ export async function generateMetadata({ params }) {
       title: `Global ${readableType} product directory`,
       description: "Explore global trade product listings A-Z.",
       url: fullUrl,
-      images: [{ url: "https://eximtradedata.com/images/logo.svg" }],
+      images: [{ url: "/logo.png" }],
     },
     twitter: {
       card: "summary",
-      images: ["https://eximtradedata.com/images/logo.svg"],
+      images: ["/logo.png"],
     },
   };
 }

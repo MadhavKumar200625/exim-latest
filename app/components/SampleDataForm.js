@@ -2,7 +2,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Search , X } from "lucide-react";
 import { countries } from "@/app/data";
-import Image from "next/image";
 import axios from "axios";
 import React from 'react'
 
@@ -419,7 +418,7 @@ if (!/^\d{10,}$/.test(phone)) {
                           setShowDropdown(false);
                         }}
                       >
-                        <Image
+                        <img
                           width={20}
                           height={20}
                           src={flag}

@@ -54,7 +54,7 @@ export async function POST(req) {
     <p>If you have any urgent questions, feel free to reply to this email.</p>
 
     <p style="margin-top: 30px;">Warm regards,<br><strong>The Exim Trade Data Team</strong></p>
-    <img src="https://eximtradedata.com/images/logo.svg" alt="Exim Trade Data Logo" style="margin-top: 10px; width: 120px; height: auto;" />
+    <img src="/logo.png" alt="Exim Trade Data Logo" style="margin-top: 10px; width: 120px; height: auto;" />
     
     <hr style="margin: 30px 0;" />
     <p style="font-size: 12px; color: #888;">This is an automated response. Please don’t reply directly unless needed.</p>

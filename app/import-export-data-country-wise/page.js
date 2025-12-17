@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Exim Trade Data",
     images: [
       {
-        url: "https://eximtradedata.com/images/logo.png",
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
@@ -42,7 +42,7 @@ export const metadata = {
     site: "@eximtradedata",
     creator: "@eximtradedata",
     url: "https://eximtradedata.com/import-export-data-country-wise",
-    images: ["https://eximtradedata.com/images/logo.png"],
+    images: ["/logo.png"],
   }
   
 };
