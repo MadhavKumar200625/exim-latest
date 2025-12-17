@@ -956,7 +956,7 @@ const Modal = ({ openModal, setOpenModal, plan }) => {
                         <div id="step-3" className={`step ${showStep(3)}`}>
                             <div className="grid grid-cols-3 items-center gap-5">
                                 <div className="">
-                                    <img src="./images/thanku.svg" className='w-80 mx-auto' alt="" />
+                                    <img src="/thanku.svg" className='w-80 mx-auto' alt="" />
                                 </div>
                                 <div className="col-span-2">
                                     <div className="text-2xl font-bold">Your Appointment has been scheduled</div>
