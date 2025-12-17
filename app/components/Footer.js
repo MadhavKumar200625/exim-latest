@@ -260,19 +260,19 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-2 text-black text-lg">Solutions</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-black">
-              <Link href="/agribusiness">Agribusiness</Link>
-              <Link href="/asset-management">Asset Management</Link>
-              <Link href="/academic-and-education">Academic and Education</Link>
-              <Link href="/automative">Automotive</Link>
-              <Link href="/aerospace-and-defence">Aerospace and Defence</Link>
-              <Link href="/construction">Construction</Link>
-              <Link href="/chemical">Chemical</Link>
-              <Link href="/energy">Energy Sector</Link>
-              <Link href="/exporters">Exporters</Link>
-              <Link href="/importers">Importers</Link>
-              <Link href="/law-firms">Law Firms</Link>
-              <Link href="/retail">Retail</Link>
-              <Link href="/sales-and-marketing">Sales and Marketing</Link>
+              <a href="/agribusiness">Agribusiness</a>
+              <a href="/asset-management">Asset Management</a>
+              <a href="/academic-and-education">Academic and Education</a>
+              <a href="/automative">Automotive</a>
+              <a href="/aerospace-and-defence">Aerospace and Defence</a>
+              <a href="/construction">Construction</a>
+              <a href="/chemical">Chemical</a>
+              <a href="/energy">Energy Sector</a>
+              <a href="/exporters">Exporters</a>
+              <a href="/importers">Importers</a>
+              <a href="/law-firms">Law Firms</a>
+              <a href="/retail">Retail</a>
+              <a href="/sales-and-marketing">Sales and Marketing</a>
             </div>
           </div>
 
@@ -282,20 +282,16 @@ export default function Footer() {
               Important Links
             </h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-black ">
-              <Link href="/get-started">Get Trial</Link>
-              <Link href="/import-export-data-country-wise">Countries Covered</Link>
-              <Link href="/global-companies-list">Global Companies</Link>
-
-              <Link href="/global-ports">Global Ports</Link>
-
-              <Link href="/industries-covered">Industries Covered</Link>
-
-              <Link href="/global-trade-database">Global Trade Database</Link>
-              <Link href="/global-products">Global Products</Link>
-              <Link href="/api-development-and-integration-company">API Integration &amp; Development</Link>
-              <Link href="/global-hs-code-list">Global HSN Code List</Link>
-
-              <Link href="/partners">Referral Partners</Link>
+              <a href="/get-started">Get Trial</a>
+              <a href="/import-export-data-country-wise">Countries Covered</a>
+              <a href="/global-companies-list">Global Companies</a>
+              <a href="/global-ports">Global Ports</a>
+              <a href="/industries-covered">Industries Covered</a>
+              <a href="/global-trade-database">Global Trade Database</a>
+              <a href="/global-products">Global Products</a>
+              <a href="/api-development-and-integration-company">API Integration &amp; Development</a>
+              <a href="/global-hs-code-list">Global HSN Code List</a>
+              <a href="/partners">Referral Partners</a>
             </div>
           </div>
         </div>

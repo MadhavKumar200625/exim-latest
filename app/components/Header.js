@@ -136,7 +136,7 @@ const Header = () => {
                   {/* Left 3-column grid */}
                   <div className="col-span-3 grid grid-cols-3 gap-x-6 gap-y-4 pr-4">
                     {solutions.map(({ title, link, icon: Icon }) => (
-                      <Link
+                      <a
                         key={title}
                         href={link}
                         className="flex items-center gap-3 p-3 rounded-lg transition hover:bg-blue-100"
@@ -145,7 +145,7 @@ const Header = () => {
                         <span className="text-gray-800 text-sm font-medium">
                           {title}
                         </span>
-                      </Link>
+                      </a>
                     ))}
                   </div>
 
