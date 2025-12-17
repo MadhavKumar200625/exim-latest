@@ -7,6 +7,9 @@ import Section5 from "./Section5";
 import { industries } from "./data";
 import { notFound } from "next/navigation";
 
+export const dynamic = "force-static";
+export const revalidate = 86400; // 24 hours
+
 export async function generateMetadata({ params }) {
   const { slug } = params;
   const industry = industries[slug];
