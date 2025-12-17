@@ -19,6 +19,11 @@ const roboto = Roboto({
 
 
 export const metadata = {
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
   title: "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
   description: "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
   keywords: [
@@ -68,55 +73,29 @@ export const metadata = {
 };
 
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
-  <head>
-    <Script id="gtm-init" strategy="afterInteractive">
-      {`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-W3SCBS3C');
-      `}
-    </Script>
-  </head>
+      <body className="font-sans">
 
-  <body className="font-sans">
-    <div
-      dangerouslySetInnerHTML={{
-        __html: `
-          <noscript>
-            <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-W3SCBS3C"
-              height="0"
-              width="0"
-              style="display:none;visibility:hidden"
-            ></iframe>
-          </noscript>
-        `,
-      }}
-    />
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`...`}
+        </Script>
 
-    <Script
-      src="https://www.googletagmanager.com/gtag/js?id=G-WC3TFBQ989"
-      strategy="afterInteractive"
-    />
-    <Script id="google-analytics" strategy="afterInteractive">
-      {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-WC3TFBQ989');
-      `}
-    </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-WC3TFBQ989"
+          strategy="afterInteractive"
+        />
 
-    <Header />
-    {children}
-    <Footer />
-  </body>
-</html>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`...`}
+        </Script>
+
+        <Header />
+        {children}
+        <Footer />
+
+      </body>
+    </html>
   );
 }
