@@ -57,7 +57,7 @@ const Advantages = () => {
           className=" "
           alt= " "
         >
-        </Image>
+        </img>
       </div>
 
       {/* Title */}
