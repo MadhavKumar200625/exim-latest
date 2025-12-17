@@ -4,36 +4,35 @@ import React from "react";
 import { ChevronRight, ArrowUpRight } from "lucide-react"; // at the top
 
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 const ImportantLinks = ({country}) => {
   const links = [
     {
       title: `${country.toUpperCase()} Import Data`,
-      url: `${baseURL}/country-wise-${country}-import-data`,
+      url: `/country-wise-${country}-import-data`,
     },
     {
       title: `${country.toUpperCase()}  Export Data`,
-      url: `${baseURL}/country-wise-${country}-export-data`,
+      url: `/country-wise-${country}-export-data`,
     },
     {
       title: `${country.toUpperCase()}  Import Export Product`,
-      url:`${baseURL}/global-products`,
+      url:`/global-products`,
     },
     {
       title: "Global Port Volume Report",
-      url: `${baseURL}/global-ports`,
+      url: `/global-ports`,
     },
     {
       title: "Global Companies List",
-      url: `${baseURL}/global-companies-list`,
+      url: `/global-companies-list`,
     },
     {
       title: "Country Wise Trade Data",
-      url: `${baseURL}/import-export-data-country-wise`,
+      url: `/import-export-data-country-wise`,
     },
     {
       title: "Global Trade API",
-      url: `${baseURL}/api-development-and-integration-company`,
+      url: `/api-development-and-integration-company`,
     },
   ];
   return (

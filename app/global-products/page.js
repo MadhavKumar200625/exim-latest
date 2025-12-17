@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 export const dynamic = "force-static";
 export const revalidate = 3600;
 
-const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 const metadata = {
   title: 'Global Import-Export Products Directory (A-Z) | Exim Trade Data',
   description:
