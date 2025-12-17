@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default Hero = ({ country, hero }) => {
+export default function Hero({ country, hero }) {
     return (
       <section className="w-full bg-white text-black pb-14 pt-28 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row text-justify  justify-between gap-10">
