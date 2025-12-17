@@ -1146,7 +1146,7 @@ Global Trade Data Analysis Country-wise
             {countries
               .filter((country) => country.continent === selectedContinent)
               .map((country) => (
-                <Link key={country.name} href={`${country.link_main}`}>
+                <a key={country.name} href={`${country.link_main}`}>
                 <div
                   key={country.link_main}
                   className="cursor-pointer  py-2 rounded-3xl  hover:shadow-3xl hover:scale-[1.02] transition-all duration-300 text-center space-y-2"
@@ -1158,7 +1158,7 @@ Global Trade Data Analysis Country-wise
                   />
                   <h3 className="text-sm font-semibold text-black">{country.name}</h3>
                 </div>
-                </Link>
+                </a>
               ))}
           </div>
         </div>

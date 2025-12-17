@@ -52,7 +52,7 @@ export default function Sectors() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {sectors.map((sector, index) => (
-          <Link href="/title" key={index} className="group">
+          <a href="/title" key={index} className="group">
             <div className="bg-white  border border-zinc-200 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
               <div className="relative h-40 w-full">
                 <img
@@ -69,7 +69,7 @@ export default function Sectors() {
                 <p className="text-black text-sm line-clamp-3">{sector.description}</p>
               </div>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
       </div>
