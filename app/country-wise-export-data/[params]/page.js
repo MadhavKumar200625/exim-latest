@@ -13,6 +13,12 @@ import GetTradeData from "./GetTradeData";
 
 import { countriesData } from "../../data/countries_exp";
 
+
+const extractCountryFromSlug = (slug = "") => {
+  return slug
+    .replace(/^country-wise-/, "")
+    .replace(/-(import|export|import-export)-data$/, "");
+};
 /* ---------- helpers ---------- */
 const normalizeSlug = (slug = "") =>
   slug.toLowerCase().replace(/\s+/g, "-");
@@ -131,11 +137,12 @@ export default function Page({ params }) {
   if (!countryData) {
     countryData = defaultData;
   }
+const country = extractCountryFromSlug(slug);
 
   return (
     <main>
       <Hero
-        country={slug}
+        country={country}
         hero={{
           title: countryData.title,
           description: countryData.description,
@@ -145,7 +152,7 @@ export default function Page({ params }) {
       <CountryLinksSection />
 
       <Includes
-        country={slug}
+        country={country}
         desc1={countryData.what_included?.desc_1 || ""}
         desc2={countryData.what_included?.desc_2 || ""}
       />
@@ -174,9 +181,9 @@ export default function Page({ params }) {
         points={countryData.grow_with_intelligence.benefits}
       />
 
-      <ImportantLinks country={slug} />
+      <ImportantLinks country={country} />
 
-      <FindWhat country={slug} />
+      <FindWhat country={country} />
 
       <GetTradeData />
     </main>

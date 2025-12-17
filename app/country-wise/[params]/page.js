@@ -12,7 +12,11 @@ import { notFound } from "next/navigation";
 import  Hero  from "./Hero";
 
 /* ---------------- HELPERS ---------------- */
-
+const extractCountryFromSlug = (slug = "") => {
+  return slug
+    .replace(/^country-wise-/, "")
+    .replace(/-(import|export|import-export)-data$/, "");
+};
 const normalizeSlug = (slug = "") =>
   slug.toLowerCase().replace(/\s+/g, "-");
 
@@ -240,52 +244,53 @@ export default function Page({ params }) {
   const rawCountry = countriesData[slug] || defaultData;
 
 
+const country_pass = extractCountryFromSlug(slug);
 
 
   const country = normalizeCountryData(rawCountry, slug);
 
   return (
     <main>
-      <Hero hero={country.hero_section} country={slug} />
+      <Hero hero={country.hero_section} country={country_pass} />
 
       <CountryLinksSection />
 
       <Stats
-        country={slug}
+        country={country_pass}
         imports={country.overview.total_imports}
         exports={country.overview.total_exports}
       />
 
       <SearchComponent
-        country={slug}
+        country={country_pass}
         heading={country.search_section.title}
         subHeading={country.search_section.description}
       />
 
       <GlobalImpact
-        country={slug}
+        country={country_pass}
         points={safeArray(country.benefits_section.points)}
       />
 
       <MarketIntel
-        country={slug}
+        country={country_pass}
         desc={country.section3.description}
         data={country.section4}
       />
 
       {country.detailed_info && (
         <DetailedTable
-          country={slug}
+          country={country_pass}
           description={country.detailed_info.description}
         />
       )}
 
       <CtaImage
-        country={slug}
+        country={country_pass}
         description={country.leads_section.description}
       />
 
-      <ImportantLinks country={slug} />
+      <ImportantLinks country={country_pass} />
 
       {country.faq_section?.faqs?.length > 0 && (
         <FAQSection faqs={country.faq_section.faqs} />
