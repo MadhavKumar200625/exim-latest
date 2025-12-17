@@ -9,18 +9,18 @@ const points = [
   {
     title: "API Development",
     desc: "Our Developers will create really fast APIs with secure connections along with an API key & documentation to understand functionality.",
-    image: `${baseURL}/images/code_plan.svg`
+    image: `/code_plan.svg`
    
   },
   {
     title: "API integration",
     desc: "Then after reviewing the API documentation, you will make API calls and synchronize it into your applications.",
-    image: `${baseURL}/images/api_integration.svg`,
+    image: `/api_integration.svg`,
   },
   {
     title: "Execute strategies",
     desc: "Once you are done API integration, the next step is to execute strategies to create an exceptional user interface.",
-    image: `${baseURL}/images/execute_strategy.svg`,
+    image: `/execute_strategy.svg`,
   },
 ];
 
