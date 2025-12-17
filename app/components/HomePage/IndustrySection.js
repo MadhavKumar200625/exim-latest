@@ -79,7 +79,7 @@ export default function IndustrySlider() {
                   src={`/solutions/${industry.name.toLowerCase().replace(/ /g, "-")}.webp`}
                   alt={industry.name}
                   layout="fill"
-                  objectFit="cover"
+                  className="object-contain"
                 />
               </div>
 

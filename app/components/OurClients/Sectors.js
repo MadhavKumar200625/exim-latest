@@ -59,8 +59,7 @@ export default function Sectors() {
                   src={sector.image}
                   alt={sector.title}
                   layout="fill"
-                  objectFit="cover"
-                  className="transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="p-5 flex flex-col flex-grow">
