@@ -8,7 +8,6 @@ import {
   Truck,
   BarChart,
 } from "lucide-react";
-import Image from "next/image";
 
 const Includes = ({ country, desc1, desc2 }) => {
   const features = [

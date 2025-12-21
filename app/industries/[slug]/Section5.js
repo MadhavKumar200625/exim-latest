@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 
 const Section5 = ({ industries }) => {
@@ -21,7 +20,6 @@ const Section5 = ({ industries }) => {
                 <img
                   src={`/solutions/${industry.title.toLowerCase().replace(/ /g, "-").replace("&","and")}.webp`}
                   alt={industry.title}
-                  fill
                   className="object-cover "
                 />
               </div>

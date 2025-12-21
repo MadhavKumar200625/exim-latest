@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import Image from 'next/image'
+
 
 const TabsSection = ({ heading, points }) => {
   const [activeIndex, setActiveIndex] = useState(0)

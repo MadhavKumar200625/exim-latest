@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 
 const IndustriesWeCover = () => {
@@ -73,7 +72,6 @@ const IndustriesWeCover = () => {
                   <img
                      src={`/search-global-trade-data/${industry.title.replace(/ /g,"-").replace("&","and").toLowerCase()}.webp`}
                     alt={industry.title}
-                    fill
                     className="object-contain"
                   />
                 </div>

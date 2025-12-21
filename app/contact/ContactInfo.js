@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState ,useRef} from "react";
 import { ChevronDown, Send } from "lucide-react";
 import { countries } from "@/app/data";
-import Image from "next/image";
+import axios from "axios";
 
 const countryCodes = {
   Afghanistan: { code: "+93", flag: "https://flagcdn.com/w40/af.png" },
@@ -304,7 +304,10 @@ const ContactInfo = () => {
           Contact Us
         </h2>
 
-        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={(e) => {
+    e.preventDefault();
+    sendEmail();
+  }}>
           {/* Your Name */}
          <div>
     <label className="block text-sm font-medium text-black mb-1">Your Name</label>
@@ -393,10 +396,7 @@ const ContactInfo = () => {
             </label>
             <div className="relative">
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  setShowDropdown(!showDropdown);
-                }}
+                type="submit"
                 className="w-full border border-gray-300  px-4 py-2 flex items-center justify-between text-black bg-white focus:ring-2 focus:ring-[#0067b8]"
               >
                 {selectedCountry || "Select Country"}
@@ -409,7 +409,7 @@ const ContactInfo = () => {
                     <div
                       key={index}
                       value={country}
-                      onChange={(e) => setCountry(e.target.value)}
+                      
                       className="flex items-center gap-2 p-2  cursor-pointer hover:bg-gray-100 text-sm"
                       onClick={() => {
                         setSelectedCountry(country);

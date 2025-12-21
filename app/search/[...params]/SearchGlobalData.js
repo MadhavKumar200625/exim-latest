@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { CheckCircle } from "lucide-react";
 
 const SearchGlobalData = ({ data }) => {

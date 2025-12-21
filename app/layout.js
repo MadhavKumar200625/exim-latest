@@ -1,22 +1,14 @@
-import './globals.css';
-import { Roboto } from 'next/font/google';
+import "./globals.css";
+import { Roboto } from "next/font/google";
 import Header from "./components/Header";
-import Footer from './components/Footer'
+import Footer from "./components/Footer";
 import Script from "next/script";
-// import { Inter } from 'next/font/google';
-
-// const inter = Inter({
-//   subsets: ['latin'],
-//   weight: ['400', '500', '600', '700'],
-//   display: 'swap',
-//   variable: '--font-inter',
-// });
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // pick what you need
+  weight: ["400", "500", "700"],
+  display: "swap",
 });
-
 
 export const metadata = {
   icons: {
@@ -24,8 +16,10 @@ export const metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  title: "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
-  description: "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
+  title:
+    "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
+  description:
+    "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
   keywords: [
     "Global Import Export Trade Data",
     "Import Export Data",
@@ -41,54 +35,63 @@ export const metadata = {
     "Importers",
     "Exporters",
     "Buyers",
-    "Suppliers"
+    "Suppliers",
   ],
   alternates: {
-    canonical: "https://eximtradedata.com/"
+    canonical: "https://eximtradedata.com/",
   },
   openGraph: {
-    title: "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
-    description: "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
+    title:
+      "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
+    description:
+      "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
     url: "https://eximtradedata.com/",
     siteName: "Exim Trade Data",
     type: "website",
     images: [
       {
-        url: "/logo.png", // Replace with the actual OG image if different
+        url: "/logo.png",
         alt: "Exim Trade Data Logo",
       },
     ],
   },
   twitter: {
     card: "summary",
-    title: "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
-    description: "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
-    site: "@eximtradedata",  // Replace with the actual Twitter handle if available
-    creator: "@eximtradedata", // Replace with the actual Twitter handle if available
-    images: ["/logo.png"], // Same as OpenGraph image
+    title:
+      "Exim Trade Data - Global Import Export Trade Data Provider | Import Export Data",
+    description:
+      "Get global import-export trade data from 200+ countries with Exim Trade Data to drive informed decisions, optimize supply chains, and boost sales.",
+    site: "@eximtradedata",
+    creator: "@eximtradedata",
+    images: ["/logo.png"],
   },
   other: {
-    "google-site-verification": "VSKuLBADMQzDxe8NHGirJ-TQgOMuWnw3ywzkGbQ-plQ",
+    "google-site-verification":
+      "VSKuLBADMQzDxe8NHGirJ-TQgOMuWnw3ywzkGbQ-plQ",
   },
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
-      <body className="font-sans">
+      <body className="font-sans antialiased">
 
-        <Script id="gtm-init" strategy="afterInteractive">
-          {`...`}
-        </Script>
-
+        {/* Google Analytics library */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-WC3TFBQ989"
           strategy="afterInteractive"
         />
 
+        {/* Google Analytics init */}
         <Script id="google-analytics" strategy="afterInteractive">
-          {`...`}
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-WC3TFBQ989', {
+              page_path: window.location.pathname,
+            });
+          `}
         </Script>
 
         <Header />

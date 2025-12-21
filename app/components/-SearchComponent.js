@@ -2,7 +2,6 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { countries } from "@/app/data";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function SearchComponent({ heading , subHeading }) {

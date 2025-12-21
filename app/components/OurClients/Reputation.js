@@ -1,6 +1,5 @@
 // components/ClientsGrid.tsx
 "use client";
-import Image from "next/image";
 
 const images = [
   "/our-clients/biomech.webp",

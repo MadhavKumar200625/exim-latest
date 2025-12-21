@@ -1,3 +1,4 @@
+// app/[slug].js
 import React from "react";
 import Hero from "./Hero";
 import TabsSection from "./TabsSection";
@@ -58,7 +59,7 @@ const Page = async ({ params }) => {
       {industry.section3 && (
         <Points
           {...industry.section3}
-          previousSection={!!industry.section2}
+          peviousSection={!!industry.section2}
         />
       )}
 

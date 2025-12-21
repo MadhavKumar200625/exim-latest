@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Hero from "./components/HomePage/Hero";
 import CountryExportSection from "./components/HomePage/ContryExportSection";
 import GrowthSection from "./components/HomePage/GrowthSection";
