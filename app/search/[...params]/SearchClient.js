@@ -58,7 +58,7 @@ export default function SearchClient({ params }) {
 
       try {
         // Call internal API route which has Redis caching
-        const res = await fetch("https://test.eximtradedata.com/search/api", {
+        const res = await fetch("/search/api", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify(queryParams),

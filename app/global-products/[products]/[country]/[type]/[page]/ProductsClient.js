@@ -54,7 +54,7 @@ export default function ProductsClient({ params }) {
           columns: columnName,
         };
 
-        const res = await fetch("https://test.eximtradedata.com/global-products/api", {
+        const res = await fetch("/global-products/api", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

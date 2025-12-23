@@ -41,7 +41,7 @@ export default function PortsClient({ country, code }) {
       };
 
       try {
-        const res = await fetch("https://test.eximtradedata.com/ports-data/api", {
+        const res = await fetch("/ports-data/api", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),

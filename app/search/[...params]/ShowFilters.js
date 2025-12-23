@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const url = `https://test.eximtradedata.com/search/${raw.join("/")}`;
+  const url = `/search/${raw.join("/")}`;
 
   return {
     title: `Search ${country} ${type} Data | Exim Trade Data`,
