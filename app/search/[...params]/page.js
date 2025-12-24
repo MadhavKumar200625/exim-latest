@@ -158,8 +158,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default  function Page({ params }) {
+export default async function Page({ params }) {
   // Static shell only — client will fetch heavy data
+  params = await params
   return (
     <main>
       
