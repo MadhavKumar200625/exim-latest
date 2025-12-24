@@ -24,7 +24,7 @@ export default function CompaniesClient({ params }) {
 
     try {
       const res = await fetch(
-        "/global-companies-list/api",
+        "https://test.eximtradedata.com/global-companies-list/api",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
